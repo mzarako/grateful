@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 
-export default class App extends Component {
+export default class Record_Moment extends Component {
   render() {
     return (
       <div>
-        <h1>This is App</h1>
-        {this.props.children}
+        <h1>Record Moment</h1>
       </div>
     )
   }
