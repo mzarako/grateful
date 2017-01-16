@@ -2,7 +2,10 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
 import App from './components/app';
+import recordMoment from './components/record-moment';
 
 export default (
-  <Router path="/" component={App} />
+  <Route path="/" component={App}>
+    <Route path="record_moment" component={recordMoment} />
+  </Route>
 );
