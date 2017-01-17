@@ -10,7 +10,7 @@
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch",
     "build:css": "rm -f build/style.css && lessc client/styles/style.less --clean-css build/style.css",
-    "watch:css": "npm run build:css && chokidar-cmd -c 'npm run build:css' -t style/**/*.less",
+    "watch:css": "npm run build:css && chokidar-cmd -c 'npm run build:css' -t client/styles/**/*.less",
     "build:js": "webpack",
     "build:html": "rm -f build/index.html && cp client/index.html build/",
     "build:images": "cp -r images/* build/",
