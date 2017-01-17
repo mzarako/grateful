@@ -1,1 +1,32 @@
 @import 'reset.less';
+
+.test-border() {
+  border: 2px dotted grey;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: orange;
+  display: flex;
+  justify-content: space-between;
+  li {
+    display: inline-block;
+    padding-left: 10px;
+  }
+}
+
+.content-block {
+  height: 200px;
+  .test-border;
+}
+
+footer {
+  margin-top: auto;
+  background-color: orange;
+  text-align: center;
+}
