@@ -5,7 +5,7 @@ export default class Record_Moment extends Component {
     super();
     this.onHandleSubmit = this.onHandleSubmit.bind(this);
   }
-  onHandleSubmit(event) {
+  handleSubmit(event) {
     event.preventDefault();
     console.log('moment remebered');
   }
@@ -13,7 +13,7 @@ export default class Record_Moment extends Component {
     return (
       <div>
         <h1>Write a Moment</h1>
-        <form onSubmit={this.onHandleSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <label>
             Your moment:
             <textarea name="moment" rows="4" cols="30" />
