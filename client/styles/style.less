@@ -4,10 +4,31 @@
   border: 2px dotted grey;
 }
 
+.mobile-margins {
+  margin-left: 0;
+}
+
+.mobile-padding {
+  padding-right: 10px;
+}
+
+.desktop-margins {
+  margin-left: 12%;
+}
+
+.desktop-padding {
+  padding-right: 12%;
+}
+
 .app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  .mobile-margins;
+}
+
+header, .content-block, .footer {
+  .mobile-padding;
 }
 
 header {
@@ -30,3 +51,13 @@ footer {
   background-color: orange;
   text-align: center;
 }
+
+@media screen and (min-width: 700px) {
+  .app {
+    .desktop-margins;
+  }
+  header, .content-block, .footer {
+   .desktop-padding;
+}
+}
+
