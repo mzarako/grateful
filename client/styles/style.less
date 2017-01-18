@@ -1,7 +1,7 @@
 @import 'reset.less';
 
 .test-border() {
-  border: 2px dotted grey;
+  border: 1px dotted grey;
 }
 
 .mobile-margins {
@@ -20,15 +20,28 @@
   padding-right: 12%;
 }
 
+.inline-img {
+  display: inline-block;
+  width: 18%;
+  img {
+    width: 100%;
+  }
+}
+
+.inline-text {
+  display: inline-block;
+  width: 80%;
+}
+
 .app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  .mobile-margins;
 }
 
-header, .content-block, .footer {
+header, .content-block {
   .mobile-padding;
+  .mobile-margins;
 }
 
 header {
@@ -42,8 +55,15 @@ header {
 }
 
 .content-block {
-  height: 200px;
   .test-border;
+}
+
+.read-arrow, .read-moment, .button {
+  .test-border;
+}
+
+.read-arrow, .read-moment {
+  display: inline-block;
 }
 
 footer {
@@ -53,11 +73,9 @@ footer {
 }
 
 @media screen and (min-width: 700px) {
-  .app {
+  header, .content-block {
     .desktop-margins;
+    .desktop-padding;
   }
-  header, .content-block, .footer {
-   .desktop-padding;
-}
 }
 
