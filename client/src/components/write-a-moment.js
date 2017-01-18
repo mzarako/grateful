@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Record_Moment extends Component {
+export default class WriteMoment extends Component {
   constructor() {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -11,14 +11,11 @@ export default class Record_Moment extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="content-block">
         <h1>Write a Moment</h1>
         <form onSubmit={this.handleSubmit}>
-          <label>
-            Your moment:
             <textarea name="moment" rows="4" cols="30" />
-          </label>
-          <input type="submit" value="Remember" />
+          <input type="submit" value="Save" />
         </form>
       </div>
     )
