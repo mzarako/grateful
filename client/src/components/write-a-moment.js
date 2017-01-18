@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class Record_Moment extends Component {
   constructor() {
     super();
-    this.onHandleSubmit = this.onHandleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleSubmit(event) {
     event.preventDefault();

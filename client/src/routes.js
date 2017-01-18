@@ -3,11 +3,12 @@ import { Route, IndexRoute } from 'react-router';
 
 import App from './components/app';
 import Home from './components/home';
-import writeMoment from './components/write-a-moment';
+import WriteMoment from './components/write-a-moment';
+import Footer from './components/footer';
 
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={Home} />
-    <Route path="write-a-moment" component={writeMoment} />
+    <Route path="write-a-moment" component={WriteMoment} />
   </Route>
 );
