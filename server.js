@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:mindful-moments/db');
 
 const config = require('./config/config.express.js');
 const middleware_configuration = require('./config/middleware.express.js');

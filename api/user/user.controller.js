@@ -1,41 +1,34 @@
-var letterList = [];
+const User = require('./user.model');
 
 let methods = {};
 
-methods.sendList = () => {
-	return letterList;
-}
+methods.signup = function(body, res) {
+	const email = body.email;
+	const password = body.password;
 
-methods.createLetterList = (name) => {
-	var splitName = name.split("");
-	for (var i = 0; i < splitName.length; i++) {
-		letterList[i] = {};
-		letterList[i].letter = splitName[i];
-		letterList[i].word = "";
-		letterList[i].position = i;
+	if (!email || !password) {
+		return res.status(422).send({ error: 'You must provide email and password' });
 	}
-	return letterList;
-};
 
-methods.updateWords = (letterArray) => {
-	for (var i = 0; i < letterList.length; i++) {
-		if (letterList[i].position == letterArray[i].position) {
-			letterList[i].word = letterArray[i].word;
+	User.findOne({ email: email }, (err, existingUser) => {
+		if (err) { return next(err); }
+		if (existingUser) {
+			return res.status(422).send({ error: 'Email is in use' });
 		}
-	}
-	return letterList;
+		const user = new User({
+			email: email,
+			password: password
+		});
+		user.save( err => {
+			if (err) { return next(err); }
+			res.json({ success: true });
+		});
+	})
 }
-
-methods.deleteLetterList = () => {
-	letterList = [];
-	return letterList;
-}
-
 
 let Controller = {
-	getList: (req, res) => {
-		const list = 'response from server';
-		res.status(200).json(list);
+	signup(req, res, next) {
+		methods.signup(req.body, res, next);
 	},
 	postLetterList: (req, res) => {
 		const listWithName = methods.createLetterList(req.params.name);
