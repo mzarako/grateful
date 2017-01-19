@@ -20,13 +20,13 @@ class WriteMoment extends Component {
   }
   render() {
     return (
-      <div className="content-block">
+      <section>
         <h1>Write a Moment</h1>
         <form onSubmit={this.handleSubmit}>
             <textarea name="moment" rows="4" cols="30" onChange={this.handleTextChange} />
           <input type="submit" value="Save" />
         </form>
-      </div>
+      </section>
     )
   }
 }
