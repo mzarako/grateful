@@ -4,7 +4,7 @@ const express = require('express');
 
 function configuration(app) {
 
-	app.use(express.static(path.resolve(__dirname, '../', 'client')));
+	app.use(express.static(path.resolve(__dirname, '../', 'build')));
 	app.use('/libs', express.static(path.resolve(__dirname, '../', 'node_modules')));
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({
@@ -14,4 +14,3 @@ function configuration(app) {
 }
 
 module.exports = configuration;
-

@@ -1,5 +1,5 @@
 var configuration = {
-	express_port: 8080
+	express_port: 3090
 }
 
 module.exports = configuration;
