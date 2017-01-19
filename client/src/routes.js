@@ -5,7 +5,7 @@ import App from './components/app';
 import Home from './components/home';
 
 import WriteMoment from './components/write-a-moment';
-import readMoment from './components/read-a-moment';
+import ReadMoment from './components/read-a-moment';
 import Footer from './components/footer';
 
 export default (

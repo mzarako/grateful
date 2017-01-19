@@ -34,7 +34,7 @@ methods.deleteLetterList = () => {
 
 let Controller = {
 	getList: (req, res) => {
-		const list = methods.sendList();
+		const list = 'response from server';
 		res.status(200).json(list);
 	},
 	postLetterList: (req, res) => {
