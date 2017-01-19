@@ -6,7 +6,7 @@ export default class ReadMoment extends Component {
   }
   render() {
     return (
-      <div className="content-block">
+      <section>
         <h1>Read a Moment</h1>
         <div>
           <div className="read-arrow">arrow</div>
@@ -16,10 +16,10 @@ export default class ReadMoment extends Component {
           </div>  
           <div className="read-arrow">arrow</div>
         </div>  
-        <div className="button">Save changes</div>
-        <div className="button">Delete</div>
-        <div className="button">Display all</div>
-      </div>
+        <button type="button">Save changes</button>
+        <button type="button">Delete</button>
+        <button type="button">Display all</button>
+      </section>
     )
   }
 }

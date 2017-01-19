@@ -8,6 +8,7 @@ import WriteMoment from './components/write-a-moment';
 import ReadMoment from './components/read-a-moment';
 import Account from './components/account';
 import Footer from './components/footer';
+import Login from './components/login';
 
 export default (
   <Route path="/" component={App}>
@@ -15,5 +16,6 @@ export default (
     <Route path="write-a-moment" component={WriteMoment} />
     <Route path="read-a-moment" component={ReadMoment} />
     <Route path="account" component={Account} />
+    <Route path="login" component={Login} />
   </Route>
 );

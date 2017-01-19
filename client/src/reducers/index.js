@@ -3,7 +3,7 @@ import authenticate from './authenticate';
 
 
 const rootReducer = combineReducers({
-  loggedIn: authenticate
+  isLoggedIn: authenticate
 });
 
 export default rootReducer;

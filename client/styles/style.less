@@ -4,7 +4,6 @@
 @very-light-green: #E1EACD;
 
 body {
-  font-family: 'Quattrocento Sans', sans-serif;
   background-color: @light-green;
 }
 
@@ -12,57 +11,31 @@ body {
   border: 3px dotted white;
 }
 
-.mobile-margins {
-  margin-left: 0;
-}
-
-.mobile-padding {
-  padding-right: 10px;
-}
-
-.desktop-margins {
-  margin-left: 12%;
-}
-
-.desktop-padding {
-  padding-right: 12%;
-}
-
 .inline-img {
   display: inline-block;
-  width: 18%;
-  img {
-    width: 100%;
-  }
 }
 
 .inline-text {
   display: inline-block;
-  width: 80%;
 }
 
 .app {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
-header, .content-block {
-  .mobile-padding;
-  .mobile-margins;
-}
 
 header {
   background-color: white;
-  display: flex;
-  justify-content: space-between;
+  nav, h1, div {
+    display: inline-block;
+  }
   li {
     display: inline-block;
     padding-left: 10px;
   }
 }
 
-.content-block {
+section {
   .test-border;
   background-color: @very-light-green;
 }
@@ -81,10 +54,4 @@ footer {
   text-align: center;
 }
 
-@media screen and (min-width: 700px) {
-  header, .content-block {
-    .desktop-margins;
-    .desktop-padding;
-  }
-}
 
