@@ -1,10 +1,17 @@
 const User = require('../api/user/user.model');
+const jwt = require('jwt-simple');
+const config = require('../config');
+
+function tokenForUser(user) {
+	const timestamp = new Date().getTime();
+	return jwt.encode({ sub: user.id, iat: timestamp }, config.secret);
+}
 
 let methods = {};
 
-methods.signup = function(body, res) {
-	const email = body.email;
-	const password = body.password;
+methods.signup = function(req, res, next) {
+	const email = req.body.email;
+	const password = req.body.password;
 
 	if (!email || !password) {
 		return res.status(422).send({ error: 'You must provide email and password' });
@@ -21,14 +28,21 @@ methods.signup = function(body, res) {
 		});
 		user.save( err => {
 			if (err) { return next(err); }
-			res.json({ success: true });
+			res.json({ token: tokenForUser(user) });
 		});
 	})
 }
 
+methods.login = function(req, res, next) {
+	res.send({ token: tokenForUser(req.user) });
+}
+
 let Controller = {
 	signup(req, res, next) {
-		methods.signup(req.body, res, next);
+		methods.signup(req, res, next);
+	},
+	login(req, res, next) {
+		methods.login(req, res, next);
 	}
 };
 
