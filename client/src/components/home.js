@@ -6,25 +6,29 @@ export default class Home extends Component {
     return (
       <div>
         <section>
-          Slideshow
+          <div className="home-img"><img src="http://placekitten.com/g/200/200" /></div>
+            <div className="home-text">
+              <h4>Fill your year with Mindful Moments and watch your gratitude grow!</h4>
+            </div>
         </section>
         <section>
-            <div className="home-img"><img src="http://placekitten.com/g/200/200" /></div>
-            <div className="home-text"><h4>
-          Explanation Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going
-          The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham. </h4>
+            <div className="home-text">
+              <h4>Mindful Moments are personal notes of gratitude. They can be... funny, beautiful, a new connection, calm, etc. Write a Moment every day or every week.</h4>
+            </div>
+            <div className="home-text">
+               <h4>Read your Moments at the year's end, or whenever you need a reminder to smile.</h4>
             </div>
         </section>
         <section>
             <div className="home-img"><img src="http://placekitten.com/g/200/200" /></div>
             <div className="home-text">
-          Science Contrary to popular belief, Lorem Ipsum is t original form, accompanied by English versions from the 1914 translation by H. Rackham.
+                <h4>The science on gratitude is bubbling with exciting findings– people who take time to feel grateful are happier, healthier, and more positive.</h4><Link to="http://www.health.harvard.edu/newsletter_article/in-praise-of-gratitude"><h4>Learn More</h4></Link>
             </div>
         </section>
         <section>
             <div className="home-img"><img src="http://placekitten.com/g/200/200" /></div>
             <div className="home-text">
-          Get inspired used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+              <h4>Capture the splendor of your life with your personal collection of Mindful Moments.</h4><Link to="/login"><h4>Sign Up (free!)</h4></Link>
             </div>
         </section>
       </div>

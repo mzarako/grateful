@@ -62,7 +62,7 @@ class Header extends Component {
     }
     else {
       return (
-        <Link to="/login"><h4>Login | Signup</h4></Link>
+        <Link to="/login" className="login"><h4>Login | Signup</h4></Link>
         )
     }
   }
