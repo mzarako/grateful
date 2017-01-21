@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import signout from '../actions/signout';
+import signout from '../actions/signout.action';
 import logo from '../../images/logo.svg';
+
 
 class Header extends Component {
   constructor() {
@@ -23,18 +24,18 @@ class Header extends Component {
   }
   returnHamburger() {
     if (this.state.hamburgerOpen) {
-      let hamburger =
-      [<div className="hamburger1 animate-hamburger1"></div>,
-      <div className="hamburger2 animate-hamburger2"></div>,
-      <div className="hamburger3 animate-hamburger3"></div>];
-      return hamburger;
+      return (
+      [<div className="hamburger1 animate-hamburger1" key="ham1"></div>,
+      <div className="hamburger2 animate-hamburger2" key="ham2"></div>,
+      <div className="hamburger3 animate-hamburger3" key="ham3"></div>];
+      )
     }
     else {
-      let hamburger =
-      [<div className="hamburger1"></div>,
-      <div className="hamburger2"></div>,
-      <div className="hamburger3"></div>];
-      return hamburger;
+      return (
+      [<div className="hamburger1" key="ham1"></div>,
+      <div className="hamburger2" key="ham2"></div>,
+      <div className="hamburger3" key="ham3"></div>];
+      )
     }
   }
   toggleHamburgerNav() {
@@ -43,8 +44,9 @@ class Header extends Component {
     }
     else return "nav-hidden";
   }
-  navBar(isLoggedIn) {
-    if (isLoggedIn) {
+  navBar(authenticated) {
+    console.log('authenticated?', authenticated);
+    if (authenticated) {
       return (
        <nav className={this.toggleHamburgerNav()}>
             <ul>
@@ -63,7 +65,9 @@ class Header extends Component {
     }
     else {
       return (
-        <Link to="/login" className="login"><h4>Login | Signup</h4></Link>
+          <div className="login"><h4>
+            <Link to="/login">Login</Link> | <Link to="/signup">Signup</Link>
+          </h4></div>
         )
     }
   }
@@ -71,7 +75,7 @@ class Header extends Component {
     return (
       <header>
         <Link className="a-logo" to="/"><img src={logo} /></Link>
-        {this.navBar(this.props.isLoggedIn)}
+        {this.navBar(this.props.authenticated)}
       </header>
     )
   }
@@ -79,7 +83,7 @@ class Header extends Component {
 
 function mapStateToProps(state) {
   return {
-    isLoggedIn: state.isLoggedIn
+    authenticated: state.auth.authenticated
   };
 }
 

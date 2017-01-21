@@ -1,5 +1,6 @@
-const LOGIN = 'login';
 const AJAX_TEST = 'ajax_test';
-const SIGNOUT = 'signout';
+const AUTH_USER = 'auth_user';
+const UNAUTH_USER = 'unauth_user';
+const AUTH_ERROR = 'auth_error';
 
-module.exports = { LOGIN, AJAX_TEST, SIGNOUT };
+module.exports = { AJAX_TEST, AUTH_USER, UNAUTH_USER, AUTH_ERROR };
