@@ -27,14 +27,14 @@ class Header extends Component {
       return (
       [<div className="hamburger1 animate-hamburger1" key="ham1"></div>,
       <div className="hamburger2 animate-hamburger2" key="ham2"></div>,
-      <div className="hamburger3 animate-hamburger3" key="ham3"></div>];
+      <div className="hamburger3 animate-hamburger3" key="ham3"></div>]
       )
     }
     else {
       return (
       [<div className="hamburger1" key="ham1"></div>,
       <div className="hamburger2" key="ham2"></div>,
-      <div className="hamburger3" key="ham3"></div>];
+      <div className="hamburger3" key="ham3"></div>]
       )
     }
   }
