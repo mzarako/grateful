@@ -2,7 +2,7 @@ const router = require('express').Router();
 const controller = require('./user.controller');
 
 router.route('/')
-	.post(controller.signup);
+	// .post(controller.signup);
 	// .get(controller.signup)
 	// .delete(controller.signup);
 
