@@ -4,23 +4,35 @@
 @green: #96ce7a;
 @white: #F1F7ED;
 @white-green: #E0EEC6;
-@gold: #C2A83E;
+@gold: #FBD046;
 @black: #223127;
+@galaxy: #6B717E;
+@neutral: #EDEEC0;
+@orange: #F9A03F;
+@off-white: #EAF2E3;
+@light-purple: #DAD6D6;
+@font-grey: #878787;
+@magenta: #993955;
+@blue: #99C5B5;
+@dark: #393E41;
+@dusty-wine: #5F464B;
 
 body {
   background-color: @white;
   font-family: 'Raleway', sans-serif;
-  color: @dark-green;
+  color: @white;
 }
 
 a {
-  color: @dark-green;
+  color: @font-grey;
   text-decoration: none;
   cursor: pointer;
 }
 
+a:hover {color: @galaxy;}
+
 .test-border() {
-  border: 3px dotted @white;
+  border: 0px solid @green;
 }
 
 .inline {
@@ -46,8 +58,6 @@ button {
 header {
   background-color: @white;
   width: 100%;
-  border-bottom: 10px solid @white-green;
-  border-top: 10px solid @white-green;
   img {
     width: 80%;
     display: block;
@@ -61,11 +71,11 @@ header {
   nav {
     width: 100%;
     background-color: @white-green;
-    color: @dark-green;
+    color: @font-grey;
     padding: 20px 0;
     transition: 0.4s;
     a {
-      color: @dark-green;
+      color: @font-grey;
     }
     li {
       text-align: center;
@@ -120,11 +130,23 @@ header {
 
 section {
   .test-border;
-  background-color: @green;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 400px;
+  font-size: 22px;
+}
+
+.odd {
+  background-color: @white-green;
+  color: @font-grey;
+  margin-top: 30px;
+}
+.even {
+  background-color: @green;
+  color: @white;
+  margin-top: 30px;
 }
 
 .home-img {
@@ -194,11 +216,10 @@ footer {
 
 @media screen and (min-width: 1000px) {
   header {
-    border-bottom: none;
     .button-div {display: none;}
     ul {text-align: right;}
     .nav-hidden {
-      padding: 10px 0;
+      padding: 10px 0 0 0;
       width: 100%;
       height: auto;
     }
