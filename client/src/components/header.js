@@ -3,6 +3,8 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import signout from '../actions/signout.action';
+import logo from '../../images/logo.svg';
+
 
 class Header extends Component {
   constructor() {
@@ -22,19 +24,19 @@ class Header extends Component {
   }
   returnHamburger() {
     if (this.state.hamburgerOpen) {
-      let hamburger = 
+      return (
       [<div className="hamburger1 animate-hamburger1" key="ham1"></div>,
       <div className="hamburger2 animate-hamburger2" key="ham2"></div>,
       <div className="hamburger3 animate-hamburger3" key="ham3"></div>];
-      return hamburger;
+      )
     }
     else {
-      let hamburger = 
+      return (
       [<div className="hamburger1" key="ham1"></div>,
       <div className="hamburger2" key="ham2"></div>,
       <div className="hamburger3" key="ham3"></div>];
-      return hamburger;
-    }  
+      )
+    }
   }
   toggleHamburgerNav() {
     if (this.state.hamburgerOpen) {
@@ -56,8 +58,8 @@ class Header extends Component {
                 <button type="button" onClick={this.hamburgerClicked}>
                   {this.returnHamburger()}
                 </button>
-              </div>  
-            </ul>  
+              </div>
+            </ul>
       </nav>
         )
     }
@@ -69,10 +71,10 @@ class Header extends Component {
         )
     }
   }
-  render() {       
+  render() {
     return (
       <header>
-        <Link to="/"><h1>Mindful Moments</h1></Link>
+        <Link className="a-logo" to="/"><img src={logo} /></Link>
         {this.navBar(this.props.authenticated)}
       </header>
     )
