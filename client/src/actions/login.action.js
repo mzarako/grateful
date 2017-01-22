@@ -8,14 +8,15 @@ function login({ email, password }) {
   	return function(dispatch) {
   		axios.post(`${ROOT_URL}/auth/login`, { email, password })
   			.then(response => {
+          console.log(email, password);
   				dispatch({ type: AUTH_USER });
   				localStorage.setItem('token', response.data.token);
   				browserHistory.push('/write-a-moment');
   			})
   			.catch(() => {
-  				dispatch(authError('Bad Login Info'));
+  				dispatch(authError('Wrong Password'));
   			});
-    	
+
 	}
 }
 

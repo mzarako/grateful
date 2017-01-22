@@ -15,7 +15,7 @@ const authRouter = require('./auth/auth.router');
 
 middleware_configuration(app);
 
-app.use('/', mainRouter);
+app.use('/main', mainRouter);
 app.use('/user', userRouter);
 app.use('/write-a-moment', momentRouter);
 app.use('/auth', authRouter);

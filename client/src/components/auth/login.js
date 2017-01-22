@@ -8,33 +8,43 @@ import { login } from '../../actions/login.action';
 class Login extends Component {
   constructor() {
     super();
+    this.state = {
+      hasPassword: true
+    };
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    this.renderAlert = this.renderAlert.bind(this);
+    this.renderValidationAlert = this.renderValidationAlert.bind(this);
+    this.renderAuthAlert = this.renderAuthAlert.bind(this);
   }
-  handleFormSubmit({ email, password }) {
-    console.log(email, password);
-    this.props.login({ email, password });
+  handleFormSubmit({ password }) {
+    this.props.login({ email: this.props.email, password });
   }
-  renderAlert(err) {
+  renderValidationAlert(state) {
+    if (!state.hasPassword) {
+      return <div><strong>Hey!</strong>Enter a password</div>;
+    }
+  }
+  renderAuthAlert(err) {
     if (err) {
       return <div><strong>Oops!</strong>{err}</div>
     }
   }
+  componentWillMount() {
+    console.log('props.email is', this.props.email);
+  }
   render() {
-    const { handleSubmit, fields: { email, password }} = this.props;
+    const { handleSubmit } = this.props;
     return (
       <section>
         <h1>Login</h1>
         <div>
           <form onSubmit={handleSubmit(this.handleFormSubmit)}>
 
-            <label htmlFor="email">email</label>
-            <div><Field {...email} name="email" component="input" type="text" /></div>
+            <div>
+              <label htmlFor="password">password</label>
+              <Field name="password" type="password" component="input" />
+            </div>
 
-            <label htmlFor="password">password</label>
-            <div><Field {...password} name="password" component="input" type="password" /></div>
-
-            {this.renderAlert(this.props.errorMessage)}
+            {this.renderAuthAlert(this.props.errorMessage)}
             <button type="submit">Submit</button>
           </form>
         </div>
@@ -45,24 +55,19 @@ class Login extends Component {
 
 
 function mapStateToProps(state) {
-  return { errorMessage: state.auth.error };
+  return {
+    errorMessage: state.auth.error,
+    email: state.user.email
+  };
 }
 
 function mapDispatchToProps(dispatch) {
-  const actions = { login: login };
+  const actions = { login };
   return bindActionCreators(actions, dispatch);
 }
 
 const Form = function(form){
-  return reduxForm({
-            form: 'login',
-            fields: ['email', 'password']
-          })(form);
+  return reduxForm({ form: 'login' })(form);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form(Login));
-
-// export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({
-//   form: 'login',
-//   fields: ['email', 'password']
-// })(Login));
