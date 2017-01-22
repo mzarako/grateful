@@ -45,7 +45,7 @@ class Header extends Component {
     else return "nav-hidden";
   }
   navBar(authenticated) {
-    console.log('authenticated?', authenticated);
+    // console.log('authenticated?', authenticated);
     if (authenticated) {
       return (
        <nav className={this.toggleHamburgerNav()}>
@@ -66,7 +66,7 @@ class Header extends Component {
     else {
       return (
           <div className="login"><h4>
-            <Link to="/login">Login</Link> | <Link to="/signup">Signup</Link>
+            <Link to="/enter-email">Login | Signup</Link>
           </h4></div>
         )
     }

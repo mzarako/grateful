@@ -30,14 +30,31 @@ methods.signup = function(req, res, next) {
 			if (err) { return next(err); }
 			res.json({ token: tokenForUser(user) });
 		});
-	})
+	});
 }
 
 methods.login = function(req, res, next) {
 	res.send({ token: tokenForUser(req.user) });
 }
 
+methods.searchEmails = function(req, res, next) {
+	const email = req.body.email;
+	console.log(email);
+	User.findOne({ email: email }, (err, existingUser) => {
+		if (err) { return next(err); }
+		if (existingUser) {
+			return res.status(200).send({ emailFound: 'yes' });
+		}
+		else {
+			return res.status(200).send({ emailFound: 'no' });
+		}
+	});
+}
+
 let Controller = {
+	searchEmails(req, res, next) {
+		methods.searchEmails(req, res, next);
+	},
 	signup(req, res, next) {
 		methods.signup(req, res, next);
 	},

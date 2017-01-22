@@ -6,6 +6,9 @@ const passport = require('passport');
 // const requireAuth = passport.authenticate('jwt', { session: false });
 const requireLogin = passport.authenticate('local', { session: false });
 
+router.route('/')
+	.post(controller.searchEmails);
+
 router.route('/signup')
 	.post(controller.signup);
 

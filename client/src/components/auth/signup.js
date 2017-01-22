@@ -8,35 +8,46 @@ import { signup } from '../../actions/signup.action';
 class Signup extends Component {
   constructor() {
     super();
-    // this.state = { 
-    //   passwordsMatch: true,
-    //   hasPassword: true,
-    //   hasEmail: true
-    //    };
+    this.state = {
+      hasName: true,
+      hasPassword: true,
+      passwordsMatch: true,
+      passwordLongEnough: true
+    };
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.renderValidationAlert = this.renderValidationAlert.bind(this);
     this.renderAuthAlert = this.renderAuthAlert.bind(this);
   }
-  handleFormSubmit({ email, password }) {
-    // this.setState({ hasEmail: !!email });
-    // this.setState({ hasPassword: !!password });
-    // const pwordMatch = password === passwordConfirm;
-    // this.setState({ passwordsMatch: pwordMatch });
-    // if (pwordMatch && !!email && !! password) {
-    //   this.props.signup({ email, password });
-    // }
-    this.props.signup({ email, password });
-  }
-  renderValidationAlert({ email, password, passwordConfirm }) {
-    let showErrors = [];
-    if (email.error) {
-      showErrors.push(<div key="noEmail"><strong>Hey!</strong>Enter an email</div>);
+  handleFormSubmit({  name, password, passwordConfirm }) {
+    const pwordLongEnough = password.length > 7;
+    const pwordMatch = password === passwordConfirm;
+    this.setState({
+      hasName: !!name,
+      hasPassword: !!password,
+      passwordsMatch: pwordMatch,
+      passwordLongEnough: pwordLongEnough
+    })
+    if (pwordMatch && pwordLongEnough && !!password && !!name) {
+      this.props.signup({ email: this.props.email, password, name });
     }
-    if (password.error) {
+  }
+  renderValidationAlert(state) {
+    let showErrors = [];
+    if (!state.hasName) {
+      showErrors.push(<div key="noName"><strong>Hey!</strong>What is your first name?</div>);
+    }
+    if (!state.hasPassword) {
       showErrors.push(<div key="noPword"><strong>Hey!</strong>Enter a password</div>);
     }
-    if (passwordConfirm.error) {
-      showErrors.push(<div key="noMatch"><strong>Oops!</strong>Passwords don't match</div>);
+    else {
+      if (!state.passwordLongEnough) {
+        showErrors.push(<div key="pwordTooShort">Password need to be at least 8 characters long.</div>);
+      }
+      else {
+        if (!state.passwordsMatch) {
+          showErrors.push(<div key="noMatch"><strong>Oops!</strong>Passwords dont match</div>);
+        }
+      }
     }
     if (showErrors.length > 0) return showErrors;
   }
@@ -46,26 +57,32 @@ class Signup extends Component {
     }
   }
   render() {
-    const { handleSubmit, fields: { email, password, passwordConfirm }} = this.props;
+    const { handleSubmit } = this.props;
     return (
       <section>
         <h1>You're one step away from your collection of moments.</h1>
+        {this.renderValidationAlert(this.state)}
         <div>
           <form onSubmit={handleSubmit(this.handleFormSubmit)}>
 
-            <label htmlFor="email">email</label>
-            <div><Field {...email} name="email" component="input" type="text" /></div>
+            <div>
+              <label htmlFor="name">first name / nickname</label>
+              <Field name="name" type="text" component="input" />
+            </div>
 
-            <label htmlFor="password">password</label>
-            <div><Field {...password} name="password" component="input" type="password" /></div>
+            <div>
+              <label htmlFor="password">password</label>
+              <Field name="password" type="password" component="input" />
+            </div>
 
-            <label htmlFor="passwordConfirm">confirm password</label>
-            <div><Field {...passwordConfirm} name="passwordConfirm" component="input" type="password" /></div>
+            <div>
+              <label htmlFor="passwordConfirm">password confirm</label>
+              <Field name="passwordConfirm" type="text" component="input" />
+            </div>
 
             <button type="submit">Submit</button>
           </form>
         </div>
-        {this.renderValidationAlert({ email, password, passwordConfirm })}
         {this.renderAuthAlert(this.props.errorMessage)}
       </section>
     )
@@ -74,7 +91,10 @@ class Signup extends Component {
 
 
 function mapStateToProps(state) {
-  return { errorMessage: state.auth.error };
+  return {
+    errorMessage: state.auth.error,
+    email: state.user.email
+   };
 }
 
 function mapDispatchToProps(dispatch) {
@@ -82,29 +102,8 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(actions, dispatch);
 }
 
-function validate(formProps) {
-  const errors = {};
-
-  if (formProps.password !== formProps.passwordConfirm) {
-    errors.passwordConfirm = true;
-  }
-  if (!formProps.email) {
-    errors.email = true
-  }
-  if (!formProps.password) {
-    errors.email = true
-  }
-
-  return errors;
-}
-
 const Form = function(form){
-  return reduxForm({
-            validate,
-            form: 'login',
-            fields: ['email', 'password', 'passwordConfirm']
-          })(form);
+  return reduxForm({ form: 'signup' })(form);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form(Signup));
-

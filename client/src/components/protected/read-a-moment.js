@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import fetchMoments from '../actions/fetch-moments.action';
+import fetchMoments from '../../actions/fetch-moments.action';
 
 class ReadMoment extends Component {
   constructor() {
@@ -20,9 +20,9 @@ class ReadMoment extends Component {
           <div className="read-moment">
             <p>January 3, 2017</p>
             <p>"Today was such a beautiful day. I feel so grateful to have gone to Sequoia and stood amongst the ancient giants."</p>
-          </div>  
+          </div>
           <div className="read-arrow inline">arrow</div>
-        </div>  
+        </div>
         <button type="button">Save changes</button>
         <button type="button">Delete</button>
         <button type="button" onClick={this.showMessage}>Display all</button>
