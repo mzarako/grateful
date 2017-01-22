@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import fetchMoments from '../actions/fetch-moments.action';
 
-export default class ReadMoment extends Component {
+class ReadMoment extends Component {
   constructor() {
     super();
+    this.showMessage = this.showMessage.bind(this);
+  }
+  showMessage() {
+    this.props.fetchMoments();
   }
   render() {
     return (
@@ -18,8 +25,17 @@ export default class ReadMoment extends Component {
         </div>  
         <button type="button">Save changes</button>
         <button type="button">Delete</button>
-        <button type="button">Display all</button>
+        <button type="button" onClick={this.showMessage}>Display all</button>
       </section>
     )
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  const actions = {
+    fetchMoments
+  }
+  return bindActionCreators(actions, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(ReadMoment);

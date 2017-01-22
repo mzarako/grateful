@@ -8,40 +8,37 @@ import { signup } from '../../actions/signup.action';
 class Signup extends Component {
   constructor() {
     super();
-    this.state = { 
-      passwordsMatch: true,
-      hasPassword: true,
-      hasEmail: true
-       };
+    // this.state = { 
+    //   passwordsMatch: true,
+    //   hasPassword: true,
+    //   hasEmail: true
+    //    };
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.renderValidationAlert = this.renderValidationAlert.bind(this);
     this.renderAuthAlert = this.renderAuthAlert.bind(this);
   }
-  handleFormSubmit({ email, password, passwordConfirm }) {
-    this.setState({ hasEmail: !!email });
-    this.setState({ hasPassword: !!password });
-    const pwordMatch = password === passwordConfirm;
-    this.setState({ passwordsMatch: pwordMatch });
-    if (pwordMatch && !!email && !! password) {
-      this.props.signup({ email, password });
-    }
+  handleFormSubmit({ email, password }) {
+    // this.setState({ hasEmail: !!email });
+    // this.setState({ hasPassword: !!password });
+    // const pwordMatch = password === passwordConfirm;
+    // this.setState({ passwordsMatch: pwordMatch });
+    // if (pwordMatch && !!email && !! password) {
+    //   this.props.signup({ email, password });
+    // }
+    this.props.signup({ email, password });
   }
-  renderValidationAlert(state) {
+  renderValidationAlert({ email, password, passwordConfirm }) {
     let showErrors = [];
-    let thereIsAnError = false;
-    if (!state.hasEmail) {
+    if (email.error) {
       showErrors.push(<div key="noEmail"><strong>Hey!</strong>Enter an email</div>);
-      thereIsAnError = true;
     }
-    if (!state.hasPassword) {
+    if (password.error) {
       showErrors.push(<div key="noPword"><strong>Hey!</strong>Enter a password</div>);
-      thereIsAnError = true;
     }
-    if (!state.passwordsMatch && state.hasPassword) {
+    if (passwordConfirm.error) {
       showErrors.push(<div key="noMatch"><strong>Oops!</strong>Passwords don't match</div>);
-      thereIsAnError = true;
     }
-    if (thereIsAnError) return showErrors;
+    if (showErrors.length > 0) return showErrors;
   }
   renderAuthAlert(err) {
     if (err) {
@@ -68,7 +65,7 @@ class Signup extends Component {
             <button type="submit">Submit</button>
           </form>
         </div>
-        {this.renderValidationAlert(this.state)}
+        {this.renderValidationAlert({ email, password, passwordConfirm })}
         {this.renderAuthAlert(this.props.errorMessage)}
       </section>
     )
@@ -85,8 +82,25 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(actions, dispatch);
 }
 
+function validate(formProps) {
+  const errors = {};
+
+  if (formProps.password !== formProps.passwordConfirm) {
+    errors.passwordConfirm = true;
+  }
+  if (!formProps.email) {
+    errors.email = true
+  }
+  if (!formProps.password) {
+    errors.email = true
+  }
+
+  return errors;
+}
+
 const Form = function(form){
   return reduxForm({
+            validate,
             form: 'login',
             fields: ['email', 'password', 'passwordConfirm']
           })(form);
