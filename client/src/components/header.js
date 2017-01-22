@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import signout from '../actions/signout.action';
-import logo from '../../images/logo.svg';
+import logo from '../../images/galaxygrapefruit-logo.svg';
 
 
 class Header extends Component {
@@ -66,7 +66,7 @@ class Header extends Component {
     else {
       return (
           <div className="login"><h4>
-            <Link to="/login">Login</Link> | <Link to="/signup">Signup</Link>
+            <Link to="/login">Login |</Link><Link to="/signup"> Signup</Link>
           </h4></div>
         )
     }

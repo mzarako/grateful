@@ -5,7 +5,7 @@
 @white: #F1F7ED;
 @white-green: #E0EEC6;
 @gold: #FBD046;
-@black: #223127;
+@black: #343738;
 @galaxy: #6B717E;
 @neutral: #EDEEC0;
 @orange: #F9A03F;
@@ -13,27 +13,41 @@
 @light-purple: #DAD6D6;
 @font-grey: #878787;
 @magenta: #993955;
-@blue: #99C5B5;
+@blue: #93ACB5;
 @dark: #393E41;
 @dusty-wine: #5F464B;
+@dusty-purple: #AAABBC;
+@dusty-green: #AAC0AF;
+@logo-green: #6c9678;
+@spanish-gray: #979B8D;
+@dusty-pink: #C1BCAC;
+@emerald: #419D78;
+
+@light-grey: #C8D3D5;
+@dusty-blue: #A4B8C4;
+@snow: #FCFAFA;
+@tanish: #ece4b7;
+@yellowish: #f7d488;
+
+@light-grapefruit: #f79d65;
+@grapefruit: #f4845f;
+@blood-orange: #f27059;
+
+// @galaxy, @gold, @dusty-blue, @spanish-gray
 
 body {
-  background-color: @white;
+  background-color: @snow;
   font-family: 'Raleway', sans-serif;
-  color: @white;
+  color: @snow;
 }
 
 a {
-  color: @font-grey;
+  color: @black;
   text-decoration: none;
   cursor: pointer;
 }
 
 a:hover {color: @galaxy;}
-
-.test-border() {
-  border: 0px solid @green;
-}
 
 .inline {
   display: inline-block;
@@ -56,8 +70,9 @@ button {
 }
 
 header {
-  background-color: @white;
+  background-color: @snow;
   width: 100%;
+  margin-bottom: 20px;
   img {
     width: 80%;
     display: block;
@@ -70,12 +85,12 @@ header {
   }
   nav {
     width: 100%;
-    background-color: @white-green;
-    color: @font-grey;
+    background-color: @light-grey;
+    color: @black;
     padding: 20px 0;
     transition: 0.4s;
     a {
-      color: @font-grey;
+      color: @black;
     }
     li {
       text-align: center;
@@ -87,7 +102,7 @@ header {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: @white-green;
+    background-color: @light-grapefruit;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -100,7 +115,7 @@ header {
     .hamburger1, .hamburger2, .hamburger3 {
       width: 40px;
       height: 2px;
-      background-color: @dark-green;
+      background-color: @light-grey;
       margin: 10px 0;
       transition: 0.4s;
       display: block;
@@ -129,7 +144,6 @@ header {
 }
 
 section {
-  .test-border;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -139,30 +153,43 @@ section {
 }
 
 .odd {
-  background-color: @white-green;
-  color: @font-grey;
-  margin-top: 30px;
+  background-color: @galaxy;
+  color: @snow;
 }
 .even {
-  background-color: @green;
-  color: @white;
-  margin-top: 30px;
+  background-color: @dusty-purple;
+  color: @snow;
 }
 
 .home-img {
   margin: 20px;
-  width: 90%;
-  img {
-    width: 100%;
-  }
 }
 
 .home-text {
-  margin: 20px;
+  width: 45%;
+  height: 100%;
 }
 
-.read-arrow, .read-moment, .button {
-  .test-border;
+.hero {
+  background-color: @galaxy;
+  flex-direction: row;
+}
+
+.hero-img {
+  align-self: flex-end;
+  width: 100%;
+  height: 250px;
+  background-repeat: repeat-x;
+  background-image: url("./flowers.svg");
+}
+
+.hero-text {
+  position: absolute;
+  margin-top: 50px;
+  padding: 10px;
+  text-align: center;
+  align-self: flex-start;
+  line-height: 2;
 }
 
 footer {
@@ -201,7 +228,6 @@ footer {
 @media screen and (min-width: 800px) {
   section {
     flex-direction: row;
-    max-width: 1200px;
   }
   .home-img {
     width: 40%;

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import flowers from '../../images/flowers.svg';
 
 export default class Home extends Component {
   render() {
     return (
       <div>
-        <section className="odd">
-          <div className="home-img"></div>
-            <div className="home-text">
+        <section className="hero">
+          <div className="hero-img"></div>
+            <div className="hero-text">
               <h4>Fill your year with Mindful Moments and watch your gratitude grow!</h4>
             </div>
         </section>
