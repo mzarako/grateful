@@ -12,9 +12,10 @@ let methods = {};
 methods.signup = function(req, res, next) {
 	const email = req.body.email;
 	const password = req.body.password;
+	const name = req.body.name;
 
-	if (!email || !password) {
-		return res.status(422).send({ error: 'You must provide email and password' });
+	if (!email || !password || !name) {
+		return res.status(422).send({ error: 'You must provide an email, a password, and a name' });
 	}
 
 	User.findOne({ email: email }, (err, existingUser) => {
@@ -24,7 +25,8 @@ methods.signup = function(req, res, next) {
 		}
 		const user = new User({
 			email: email,
-			password: password
+			password: password,
+			name: name
 		});
 		user.save( err => {
 			if (err) { return next(err); }
@@ -34,12 +36,13 @@ methods.signup = function(req, res, next) {
 }
 
 methods.login = function(req, res, next) {
-	res.send({ token: tokenForUser(req.user) });
+	res.send({ token: tokenForUser(req.user),
+	 						name: req.user.name
+						});
 }
 
 methods.searchEmails = function(req, res, next) {
 	const email = req.body.email;
-	console.log(email);
 	User.findOne({ email: email }, (err, existingUser) => {
 		if (err) { return next(err); }
 		if (existingUser) {
