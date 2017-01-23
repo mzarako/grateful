@@ -1,41 +1,75 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import ajax_test from '../../actions/ajax-test';
+import { reduxForm, Field } from 'redux-form';
+import createMoment from '../../actions/create-moment.action';
 
 class WriteMoment extends Component {
   constructor() {
     super();
     this.state = { momentText: '' };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
   }
   handleTextChange(event) {
     const newText = event.target.value;
     this.setState({ momentText: newText });
   }
-  handleSubmit(event) {
-    event.preventDefault();
-    this.props.ajax_test(this.state.momentText);
+  handleFormSubmit({ moment }) {
+    this.props.createMoment({ moment, date: this.state.date, id: this.state.id });
+  }
+  componentWillMount() {
+    const date = new Date();
+    const dateID = date.valueOf();
+    const dateString = `${getMonthString(date.getMonth())} ${date.getDate()}, ${date.getFullYear()}`;
+    this.setState({ date: dateString, id: dateID });
   }
   render() {
+    const { handleSubmit } = this.props;
     return (
       <section>
         <h1>Write a Moment</h1>
-        <form onSubmit={this.handleSubmit}>
-            <textarea name="moment" rows="4" cols="30" onChange={this.handleTextChange} />
-          <input type="submit" value="Save" />
-        </form>
+        <div>
+          <form onSubmit={handleSubmit(this.handleFormSubmit)}>
+            <div>
+              <label htmlFor="moment">{this.state.date}</label>
+              <Field name="moment" component="textarea" />
+            </div>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
       </section>
     )
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  const actions = {
-    ajax_test: ajax_test
+function getMonthString(n) {
+  switch (n) {
+    case 0: return 'January';
+    case 1: return 'February';
+    case 2: return 'March';
+    case 3: return 'April';
+    case 4: return 'May';
+    case 5: return 'June';
+    case 6: return 'July';
+    case 7: return 'August';
+    case 8: return 'September';
+    case 9: return 'October';
+    case 10: return 'November';
+    case 11: return 'December';
+    default: return '';
   }
+}
+
+function mapDispatchToProps(dispatch) {
+  const actions = { createMoment };
   return bindActionCreators(actions, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(WriteMoment);
+const Form = function(form){
+  return reduxForm({
+            form: 'write a moment',
+          })(form);
+}
+
+export default connect(null, mapDispatchToProps)(Form(WriteMoment));

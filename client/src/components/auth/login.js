@@ -28,9 +28,6 @@ class Login extends Component {
       return <div><strong>Oops!</strong>{err}</div>
     }
   }
-  componentWillMount() {
-    console.log('props.email is', this.props.email);
-  }
   render() {
     const { handleSubmit } = this.props;
     return (

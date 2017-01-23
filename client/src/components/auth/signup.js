@@ -77,7 +77,7 @@ class Signup extends Component {
 
             <div>
               <label htmlFor="passwordConfirm">password confirm</label>
-              <Field name="passwordConfirm" type="text" component="input" />
+              <Field name="passwordConfirm" type="password" component="input" />
             </div>
 
             <button type="submit">Submit</button>

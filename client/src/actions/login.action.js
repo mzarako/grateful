@@ -1,22 +1,24 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import { AUTH_USER, AUTH_ERROR } from './types';
+import { AUTH_USER, AUTH_ERROR, SET_NAME } from './types';
 const ROOT_URL = 'http://localhost:3090';
 
 
 function login({ email, password }) {
-  	return function(dispatch) {
+  	return dispatch => {
   		axios.post(`${ROOT_URL}/auth/login`, { email, password })
   			.then(response => {
-          console.log(email, password);
-  				dispatch({ type: AUTH_USER });
+          console.log('res name: ', response.data.name);
+          console.log('res token: ', response.data.token);
+          dispatch({ type: AUTH_USER });
+          dispatch({ type: SET_NAME, payload: response.data.name });
   				localStorage.setItem('token', response.data.token);
-  				browserHistory.push('/write-a-moment');
+          localStorage.setItem('name', response.data.name);
+          browserHistory.push('/write-a-moment');
   			})
   			.catch(() => {
   				dispatch(authError('Wrong Password'));
   			});
-
 	}
 }
 
