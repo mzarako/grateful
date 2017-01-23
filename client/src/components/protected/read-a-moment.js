@@ -8,7 +8,7 @@ class ReadMoment extends Component {
     super();
     this.showMessage = this.showMessage.bind(this);
   }
-  showMessage() {
+  showAllMoments() {
     this.props.fetchMoments();
   }
   render() {
@@ -25,7 +25,7 @@ class ReadMoment extends Component {
         </div>
         <button type="button">Save changes</button>
         <button type="button">Delete</button>
-        <button type="button" onClick={this.showMessage}>Display all</button>
+        <button type="button" onClick={this.showAllMoments}>Display all</button>
       </section>
     )
   }

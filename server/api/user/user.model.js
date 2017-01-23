@@ -1,11 +1,13 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt-nodejs');
+const Schema = mongoose.Schema;
+const MomentSchema = require('../moment/moment.schema');
 
 const userSchema = new Schema({
   email: { type: String, unique: true, lowercase: true },
   password: String,
-  name: String
+  name: String,
+  moments: [MomentSchema]
 });
 
 userSchema.pre('save', function(next) {

@@ -17,7 +17,6 @@ class EnterEmail extends Component {
     this.renderAuthAlert = this.renderAuthAlert.bind(this);
   }
   handleFormSubmit({ email }) {
-    console.log(email);
     this.setState({ hasEmail: !!email });
     const validEmail = email.includes('@') && email.includes('.');
     this.setState({ validEmail });

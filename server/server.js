@@ -3,9 +3,9 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const config = require('./config');
+
+mongoose.Promise = global.Promise;
 mongoose.connect(config.mogodb.url);
-
-
 const middleware_configuration = require('./config/middleware.express.js');
 
 const mainRouter = require('./api/main/main.router');
@@ -17,7 +17,7 @@ middleware_configuration(app);
 
 app.use('/main', mainRouter);
 app.use('/user', userRouter);
-app.use('/write-a-moment', momentRouter);
+app.use('/moment', momentRouter);
 app.use('/auth', authRouter);
 
 app.get('*', function(req, res){
