@@ -49,13 +49,13 @@ class ReadMoment extends Component {
   render() {
     console.log('in read-a-moment render', this.props.moments);
     return (
-      <section>
+      <div className="read-moment">
         <h1>Read a Moment</h1>
         <div className="nuka"><Nuka moments={this.props.moments} /></div>
         <button type="button">Save changes</button>
         <button type="button">Delete</button>
         <button type="button" onClick={this.fetchAllMoments}>Display all</button>
-      </section>
+      </div>
     )
   }
 }

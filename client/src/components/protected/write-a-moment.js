@@ -31,19 +31,19 @@ class WriteMoment extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <section>
+      <div className="write-moment">
         {this.greet(this.props.name)}
         <h1>Write a Moment</h1>
-        <div>
+        <div className="moment-div">
           <form onSubmit={handleSubmit(this.handleFormSubmit)}>
-            <div>
+            <div className="content">
               <label htmlFor="moment">{this.state.date}</label>
               <Field name="moment" component="textarea" />
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit"><h4>Save Moment</h4></button>
           </form>
         </div>
-      </section>
+      </div>
     )
   }
 }
