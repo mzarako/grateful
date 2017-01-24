@@ -6,7 +6,7 @@ export default class ReadMoment extends Component {
   }
   render() {
     return (
-      <section>
+      <div>
         <h1>Account Information</h1>
         <h4>Username: </h4><p>Fallopian Tube</p>
         <button>Change Username</button>
@@ -14,7 +14,7 @@ export default class ReadMoment extends Component {
         <h4>Run into an issue? Wanna chat? <a href="mailto:mindfulmoments@gmail.com?" target="_top">Contact us.</a></h4>
         <button>Delete Account</button>
         <p>*Note that deleting your account will remove all of your saved moments.</p>
-      </section>
+      </div>
     )
   }
 }
