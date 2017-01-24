@@ -5,15 +5,15 @@ let methods = {};
 methods.createMoment = function(req, res) {
 	const date = req.body.date;
 	const moment = req.body.moment;
-	const dateID = req.body.id;
+	const email = req.body.email;
 
-	User.findOne({ email: req.body.email })
+	User.findOne({ email: email })
 		.then( user => {
-			user.moments.push({ date, moment, dateID });
+			user.moments.push({ date, moment });
 			return user.save();
 		})
 		.then(() => {
-			user = User.findOne({ email: req.user.email });
+			user = User.findOne({ email: email });
 			res.status(200).json({
 				posts: user.posts
 			});

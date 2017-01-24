@@ -8,7 +8,6 @@ function searchEmails(email) {
 	return function(dispatch) {
 		axios.post(`${ROOT_URL}/auth`, { email })
 			.then(response => {
-        localStorage.setItem('email', email);
         dispatch({ type: SET_EMAIL, payload: email });
         if (response.data.emailFound === 'yes') {
           browserHistory.push('/login');
