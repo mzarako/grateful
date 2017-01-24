@@ -12,7 +12,7 @@ export default class Nuka extends Component {
     let momentsArray = []
     for (let i = moments.length-1; i >= 0; i--) {
       const m = moments[i];
-      const moment = <Moment date={m.date} text={m.text} key={m._id} />
+      const moment = <Moment date={m.date} text={m.moment} key={m._id} />
       momentsArray.push(moment);
     }
     return momentsArray;

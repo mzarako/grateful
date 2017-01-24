@@ -28,7 +28,7 @@ class Signup extends Component {
       passwordLongEnough: pwordLongEnough
     })
     if (pwordMatch && pwordLongEnough && !!password && !!name) {
-      this.props.signup({ email: this.props.email, password, name });
+      this.props.signup({ password, name });
     }
   }
   renderValidationAlert(state) {
