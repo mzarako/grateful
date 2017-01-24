@@ -10,14 +10,10 @@ class Header extends Component {
   constructor() {
     super();
     this.state = { hamburgerOpen: false };
-    this.greet = this.greet.bind(this);
     this.onSignoutClicked = this.onSignoutClicked.bind(this);
     this.navBar = this.navBar.bind(this);
     this.hamburgerClicked = this.hamburgerClicked.bind(this);
     this.toggleHamburgerNav = this.toggleHamburgerNav.bind(this);
-  }
-  greet(name) {
-    if (name) return <div>Hello {name}!</div>
   }
   onSignoutClicked() {
     this.props.signout();
@@ -80,7 +76,6 @@ class Header extends Component {
     return (
       <header>
         <Link className="a-logo" to="/"><img src={logo} /></Link>
-        {this.greet(this.props.name)}
         {this.navBar(this.props.authenticated)}
       </header>
     )
@@ -89,8 +84,7 @@ class Header extends Component {
 
 function mapStateToProps(state) {
   return {
-    authenticated: state.auth.authenticated,
-    name: state.user.name
+    authenticated: state.auth.authenticated
   };
 }
 
