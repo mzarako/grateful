@@ -4,6 +4,7 @@
 @blue: #93ACB5;
 @light-blue: #C8D3D5;
 @purple: #8d8ea5;
+@other-purple: #8d92a5;
 @light-purple: #D4D5DD;
 @dusty-blue: #A4B8C4;
 @snow: #FCFAFA;
@@ -12,6 +13,18 @@
 @light-grapefruit: #f79d65;
 @grapefruit: #f4845f;
 @blood-orange: #f27059;
+@papaya: #d67a5c;
+@dark-blue: #7A8B99;
+@light-green: #d0e3cc;
+@green: #a9bea7;
+@muted-orange: #e18c70;
+@muted-papaya: #e7a074;
+@text: #464a53;
+@white: #fafafa;
+
+@roboto: 'Roboto Slab', serif;
+
+// current scheme: @galaxy, @yellowish, @muted-orange, @muted-papaya, @dark-blue
 
 html {
   box-sizing: border-box;
@@ -21,9 +34,8 @@ html {
 }
 
 body {
-  background-color: @snow;
+  background-color: @white;
   font-family: 'Rubik', sans-serif;
-  color: @snow;
   h4 {
     font-weight: 400;
     line-height: 2;
@@ -43,7 +55,7 @@ body {
 }
 
 a {
-  color: @grapefruit;
+  color: @muted-papaya;
   font-weight: 500;
   text-decoration: none;
   cursor: pointer;
@@ -72,9 +84,9 @@ button {
 }
 
 header {
-  background-color: @snow;
+  color: @galaxy;
+  background-color: @white;
   width: 100%;
-  margin-bottom: 20px;
   img {
     width: 80%;
     display: block;
@@ -86,13 +98,11 @@ header {
   }
   nav {
     width: 100%;
-    background-color: @light-blue;
-    color: @galaxy;
+    background-color: @dark-blue;
     padding: 20px 0;
-    transition: 0.4s;
-    a {
-      color: @galaxy;
-    }
+    transition: 0.6s;
+    a {color: @white;}
+    a:hover {text-decoration: underline;}
     li {
       text-align: center;
       margin: 20px;
@@ -103,12 +113,12 @@ header {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: @light-grapefruit;
+    background-color: @dark-blue;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80px;
-    height: 72px;
+    width: 70px;
+    height: 65px;
   }
   button {
     border: none;
@@ -116,12 +126,14 @@ header {
     .hamburger1, .hamburger2, .hamburger3 {
       width: 40px;
       height: 2px;
-      background-color: @light-blue;
+      background-color: @white;
       margin: 10px 0;
       transition: 0.4s;
       display: block;
     }
   }
+  button:hover {background-color: @dark-blue;}
+  .button-div:hover {background-color: @dark-blue;}
 }
 
 .animate-hamburger1 {
@@ -145,13 +157,12 @@ header {
 }
 
 section {
-  color: @galaxy;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  color: @white;
   height: 400px;
   font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .home-img {
@@ -165,8 +176,10 @@ section {
 
 .hero {
   background-color: @galaxy;
+  display: flex;
+  justify-content: center;
   flex-direction: row;
-  color: @snow;
+  color: @white;
 }
 
 .hero-img {
@@ -185,68 +198,85 @@ section {
   line-height: 2;
 }
 
-.sec-home1 {height: 1000px;}
+.definition {
+  flex-direction: column;
+  height: 400px;
+  background-color: @dark-blue;
+  font-family: @roboto;
+  h3 {
+    font-weight: 300;
+    font-size: 1.5em;
+    padding: 50px 15px;
+  }
+  span {
+    font-style: italic;
+  }
+  .space {
+    letter-spacing: 10px;
+  }
+  h4 {
+    padding: 0 30px 15px 30px;
+    text-align: left;
+    font-weight: 300;
+    font-size: 18px;
+  }
+}
 
-.home1-text-1, .home1-text-2 {
-  width: 100%;
-  color: @snow;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.sec-home1 {
+  height: 1000px;
+  flex-direction: column;
+  .home1-text-1, .home1-text-2 {
+    width: 100%;
+    color: @white;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }
 
 .home1-text-1 {
-  background-color: @grapefruit;
-  flex-direction: column;
+  background-color: @muted-papaya;
   height: 500px;
-  ul {
-    text-align: left;
-    list-style: none;
-    img {
-      height: 45px;
-      padding: 5px;
-    }
-    li {
-      padding-bottom: 10px;
-      font-size: 18px;
-    }
-    #exclamation {margin: 0 25px;}
-    #hashtag {margin: 0 8px;}
-  }
+  padding: 40px 0;
+  h4 {height: 50%;}
+  div {height: 50%;}
+  img {height: 100%;}
 }
 
 .home1-text-2 {
-  background-color: @light-grapefruit;
+  background-color: @muted-orange;
   height: 500px;
   display: flex;
   flex-direction: column;
-  .sample-moment {
-    width: 90%;
-    max-width: 300px;
-    border: 3px solid @snow;
-    border-radius: 20px;
-    border-bottom-right-radius: 0;
-    background-color: @snow;
-    color: @galaxy;
-    font-style: italic;
-    font-size: 16px;
-    padding: 10px;
-    z-index: 2;
-    position: absolute;
-    right: 12%;
+  h4 {
+    height: 60%;
+    padding-top: 80px;
   }
-  img {
-    align-self: flex-end;
-    width: 170px;
+  .sample-moment {
+    font-family: 'Roboto Slab', serif;
+    span {text-align: left;}
+    width: 80%;
+    margin-bottom: 80px;
+    max-width: 380px;
+    max-height: 200px;
+    border: 3px solid @white;
+    border-radius: 30px;
+    border-top-left-radius: 0;
+    background-color: @muted-orange;
+    color: @white;
+    font-style: italic;
+    font-size: 18px;
+    padding: 20px;
   }
 }
 
 .sec-home2 {
   display: flex;
   flex-direction: column;
-  background-color: @blue;
-  color: @snow;
+  background-color: @dark-blue;
+  color: @white;
   height: 550px;
   .home2-img, .home2-text {
     width: 100%;
@@ -269,8 +299,8 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: @purple;
-  color: @snow;
+  background-color: @galaxy;
+  color: @white;
   width: 100%;
   height: 500px;
   .home3-img {height: 140px;}
@@ -294,11 +324,11 @@ button {
 
 footer {
   margin-top: auto;
-  background-color: @snow;
+  background-color: @white;
   text-align: center;
   width: 100%;
   h4 {
-    color: @grapefruit;
+    color: @galaxy;
     font-weight: 500;
   }
 }
@@ -336,10 +366,15 @@ footer {
 }
 
 @media screen and (min-width: 900px) {
-  section {
+  .definition {
+    flex-direction: row;
+    height: 300px;
+    h3 {padding-right: 50px;}
+  }
+  .sec-home1 {
+    height: 600px;
     flex-direction: row;
   }
-  .sec-home1 {height: 600px;}
   .home1-text-1, .home1-text-2 {height: 600px;}
   .sec-home2 {
     flex-direction: row;
@@ -378,15 +413,26 @@ footer {
 
 @media screen and (min-width: 1000px) {
   header {
+    margin-bottom: 0;
+    .a-logo {width: 40%;}
+    img {margin-left: 0;}
+    nav {background-color: transparent;}
     .button-div {display: none;}
     ul {text-align: right;}
     .nav-hidden {
-      padding: 10px 0 0 0;
-      width: 100%;
+      transition: none;
+      padding: 0 0 15px 0;
+      width: 60%;
       height: auto;
+      display: inline-block;
     }
     nav a {
       display: inline-block;
+      color: @galaxy;
+    }
+    nav a:hover {
+      color: @text;
+      text-decoration: none;
     }
   }
   .sec-home3 .home3-img img {height: 100%;}

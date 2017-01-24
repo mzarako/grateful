@@ -7,6 +7,9 @@ import hashtag from '../../images/hashtag.svg';
 import jar from '../../images/jar.svg';
 import lightbulb from '../../images/lightbulb.svg';
 import sunhead from '../../images/sunhead.svg';
+import fullJar from '../../images/full-jar.svg';
+import connection from '../../images/connection.svg';
+
 
 export default class Home extends Component {
   render() {
@@ -18,22 +21,20 @@ export default class Home extends Component {
               <h4>Fill your life with Mindful Moments and watch your gratitude grow!</h4>
             </div>
         </section>
+        <section className="definition">
+          <h3>mindful moment :</h3>
+          <h4><span>( noun )</span><br />1.<span className="space"> </span>a moment experienced with full awareness<br />2.<span className="space"> </span>a personal note of gratitude</h4>
+        </section>
         <section className="sec-home1">
             <div className="home1-text-1">
-              <h4>Mindful Moments are personal notes of gratitude. They can be about...</h4>
+              <h4>Write a Moment daily or weekly about anything you're grateful for.</h4>
               <div>
-                <ul>
-                  <li><img src={heart} />health and well-being</li>
-                  <li><img src={exclamation} id="exclamation" />a welcome surprise</li>
-                  <li><img src={faces} />personal connections</li>
-                  <li><img src={hashtag} id="hashtag" />. . . anything at all</li>
-                </ul>
+                <img src={fullJar} />
               </div>
             </div>
             <div className="home1-text-2">
                 <h4>Read your Moments at the year's end or whenever you need a reminder to smile.</h4>
-               <div className="sample-moment"><p>"My sister is amazing. Today she told me exactly what I needed to hear- You have to feel fear to be brave!"</p></div>
-               <img src={jar} />
+               <div className="sample-moment"><p><span>June 12, 2016</span><br />"My sister is amazing. Today she told me exactly what I needed to hear- You have to feel fear to be brave!"</p></div>
             </div>
         </section>
         <section className="sec-home2">
