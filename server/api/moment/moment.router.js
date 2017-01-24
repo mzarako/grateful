@@ -5,8 +5,8 @@ const passport = require('passport');
 
 const requireAuth = passport.authenticate('jwt', { session: false });
 
-// router.route('/')
-// 	.get(requireAuth, controller.getMoments);
+router.route('/')
+	.get(requireAuth, controller.getMoments);
 
 router.route('/')
 	.post(requireAuth, controller.createMoment);

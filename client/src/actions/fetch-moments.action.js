@@ -1,15 +1,20 @@
 import axios from 'axios';
 const ROOT_URL = 'http://localhost:3090';
+import { MOMENTS_FETCHED } from './types'
 
-const header = { headers: { authorization: localStorage.getItem('token') } };
+const token = localStorage.getItem('token');
+const email = localStorage.getItem('email');
+const header = { headers: { authorization: token, username: email } };
 
-export default function fetchMessage() {
-	const request = axios.get(`${ROOT_URL}/main`, {
-			headers: { authorization: localStorage.getItem('token') }
-		}).then(response => {
-				console.log(response);
-			});
-	return {
-		type: 'do nothing'
+export default function createMoment() {
+	return dispatch => {
+		axios.get( `${ROOT_URL}/moment`, header )
+		.then(response => {
+			const moments = response.data.moments;
+			dispatch({ type: MOMENTS_FETCHED, payload: moments });
+		})
+		.catch(() => {
+
+		});
 	}
 }

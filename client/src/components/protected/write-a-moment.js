@@ -16,13 +16,13 @@ class WriteMoment extends Component {
     this.setState({ momentText: newText });
   }
   handleFormSubmit({ moment }) {
-    this.props.createMoment({ moment, date: this.state.date, id: this.state.id });
+    this.props.createMoment({ moment, date: this.state.date });
   }
   componentWillMount() {
     const date = new Date();
-    const dateID = date.valueOf();
+    // const dateID = date.valueOf();
     const dateString = `${getMonthString(date.getMonth())} ${date.getDate()}, ${date.getFullYear()}`;
-    this.setState({ date: dateString, id: dateID });
+    this.setState({ date: dateString });
   }
   render() {
     const { handleSubmit } = this.props;
