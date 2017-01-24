@@ -7,7 +7,7 @@ export default function userInfo(state = {}, action) {
     case SET_NAME:
     	return { ...state, name: action.payload };
     case UNAUTH_USER:
-    	return { ...state, name: '' };
+    	return {};
     default:
     	return state;
   }

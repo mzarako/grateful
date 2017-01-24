@@ -4,6 +4,8 @@ const UNAUTH_USER = 'unauth_user';
 const AUTH_ERROR = 'auth_error';
 const SET_EMAIL = 'set_email';
 const SET_NAME = 'set_name';
+const MOMENT_SAVED = 'moment_saved';
+const MOMENTS_FETCHED = 'moments_fetched';
 
 module.exports = {
   AJAX_TEST,
@@ -11,5 +13,7 @@ module.exports = {
   UNAUTH_USER,
   AUTH_ERROR,
   SET_EMAIL,
-  SET_NAME
+  SET_NAME,
+  MOMENT_SAVED,
+  MOMENTS_FETCHED
 };
