@@ -348,7 +348,7 @@ header {
   .moment-div {
     width: 80%;
     max-width: 700px;
-    background-color: @muted-orange;
+    background-color: @dark-blue;
     color: @white;
     .content {
       background-color: @yellowish;
@@ -359,13 +359,6 @@ header {
       color: @galaxy;
       margin: 10px;
       label {font-size: 18px;}
-      .fa {
-        color: @muted-orange;
-        display: block;
-        font-size: 1.7em;
-      }
-      .fa-quote-left {padding-top: 10px;}
-      .fa-quote-right {text-align: right;}
       textarea {
         background-color: @yellowish;
         border: none;
@@ -384,6 +377,14 @@ header {
     }
   }
 }
+
+.fa {
+  color: @dark-blue;
+  display: block;
+  font-size: 1.7em;
+}
+.fa-quote-left {padding-top: 10px;}
+.fa-quote-right {text-align: right;}
 
 .account {
   .flex;
@@ -456,6 +457,75 @@ header {
   }
 }
 
+.user-home {
+  background-color: @dark-blue;
+  h4 {font-size: 26px;}
+  .write {
+    background-color: @muted-orange;
+    border-color: @muted-orange;
+  }
+  .read {
+    background-color: @muted-papaya;
+    border-color: @muted-papaya;
+  }
+}
+
+.read-moment {
+  .flex;
+  width: 100%;
+  min-height: 650px;
+  background-color: @galaxy;
+  flex-direction: column;
+  h1 {
+    margin-bottom: 30px;
+    color: @white;
+    font-weight: 400;
+  }
+  .nuka {
+      .flex;
+      width: 80%;
+      max-width: 700px;
+      background-color: @dark-blue;
+      .slider {
+        width: 100%;
+        padding: 15px;
+      }
+  }
+  .slider-decorator-0 {left: -26px!important;}
+  .slider-decorator-1 {right: -27px!important;}
+  .moment {
+    margin: 0 auto;
+    min-height: 100%;
+    width: 98%;
+    line-height: 1.5;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: @yellowish;
+    overflow: scroll;
+    p {
+      font-family: @roboto;
+      text-align: center;
+      font-size: 1.5em;
+      color: @galaxy;
+      font-size: 18px;
+      font-weight: 400;
+      text-align: left;
+    }
+    .read-moment-text {
+      p {height: 275px;}
+      .fa-quote-left {padding-top: 5px;}
+    }
+  }
+  .fa-chevron-left, .fa-chevron-right {
+    color: @white;
+    font-size: 1.7em;
+    cursor: pointer;
+    padding: 10px;
+    margin: -10px;
+  }
+  .fa-quote-left, .fa-quote-right {font-size: 1.9em;}
+}
+
 footer {
   background-color: @white;
   text-align: center;
@@ -471,6 +541,13 @@ footer {
   header img {
     max-height: 150px;
     margin-top: 20px;
+  }
+  .write-moment .moment-div .content {margin: 30px;}
+  .read-moment .nuka {
+    .moment {width: 85%;}
+    .slider {padding: 30px 15px;}
+    .slider-decorator-0 {left: 20px!important;}
+    .slider-decorator-1 {right: 21px!important;}
   }
 }
 
@@ -581,6 +658,7 @@ footer {
     }
   }
   .sec-home3 .home3-img img {height: 100%;}
+  .read-moment {margin-bottom: 100px;}
 }
 
 @media screen and (min-height: 1100px) {

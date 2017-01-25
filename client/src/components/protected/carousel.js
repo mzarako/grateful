@@ -18,7 +18,7 @@ export default class Nuka extends Component {
       }
     }
     else {
-      const welcome = <Moment date="You have no moments yet." text="Go to 'Write a Moment' to write your first moment" key="noMoment" />
+      const welcome = <Moment date="Your collection is empty." text="" key="noMoment" />
       momentsArray.push(welcome);
     }
     console.log(momentsArray);
