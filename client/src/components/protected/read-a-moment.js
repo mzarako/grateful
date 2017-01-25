@@ -14,20 +14,6 @@ class ReadMoment extends Component {
   fetchAllMoments() {
     // this.props.fetchMoments();
   }
-  // showMoments(moments) {
-  //   console.log(moments);
-  //   if (moments.length > 0) {
-  //     let momentSlides = [];
-  //     momentSlides = moments.map(moment => {
-  //       return <div key={moment._id}><Moment date={moment.date} text={moment.moment} /></div>
-  //     });
-  //     return
-  //   }
-  //   else if (length === 0) {
-  //     return <div><Moment date="Hey!" text="You should write about a moment to be grateful for!"/></div>
-  //     // momentSlides.push(<div><Moment date="Hey!" text="You should write about a moment to be grateful for!" key="noSlide"/></div>)
-  //   }
-  // }
   showAllMomentTitles(moments) {
     console.log('in showAllMomentTitles', moments);
     let momentTitles;

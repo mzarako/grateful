@@ -10,11 +10,18 @@ export default class Nuka extends Component {
   fillMoments() {
     const moments = [ ...this.props.moments ];
     let momentsArray = []
-    for (let i = moments.length-1; i >= 0; i--) {
-      const m = moments[i];
-      const moment = <Moment date={m.date} text={m.moment} key={m._id} />
-      momentsArray.push(moment);
+    if (moments.length > 0) {
+      for (let i = moments.length-1; i >= 0; i--) {
+        const m = moments[i];
+        const moment = <Moment date={m.date} text={m.moment} key={m._id} />
+        momentsArray.push(moment);
+      }
     }
+    else {
+      const welcome = <Moment date="You have no moments yet." text="Go to 'Write a Moment' to write your first moment" key="noMoment" />
+      momentsArray.push(welcome);
+    }
+    console.log(momentsArray);
     return momentsArray;
   }
   render() {
