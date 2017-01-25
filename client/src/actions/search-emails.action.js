@@ -5,7 +5,7 @@ const ROOT_URL = 'http://localhost:3090';
 
 function searchEmails(email) {
 	return function(dispatch) {
-		axios.post(`${ROOT_URL}/auth`, { email })
+		axios.post(`/auth`, { email })
 			.then(response => {
         dispatch({ type: SET_EMAIL, payload: email });
         if (response.data.emailFound === 'yes') {

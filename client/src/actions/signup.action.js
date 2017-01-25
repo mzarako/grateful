@@ -7,7 +7,7 @@ const ROOT_URL = 'http://localhost:3090';
 function signup({ password, name }) {
     const email = localStorage.getItem('email');
   	return function(dispatch) {
-  		axios.post(`${ROOT_URL}/auth/signup`, { email, password, name })
+  		axios.post(`/auth/signup`, { email, password, name })
   			.then(response => {
   				dispatch({ type: AUTH_USER });
           dispatch({ type: SET_NAME, payload: name });

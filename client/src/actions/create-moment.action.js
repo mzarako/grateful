@@ -8,7 +8,7 @@ export default function createMoment({ date, moment }) {
 		const header = { headers: { authorization: localStorage.getItem('token') } };
 		const email = localStorage.getItem('email');
 		const request = axios.post(
-	    `${ROOT_URL}/moment`,
+	    `/moment`,
 			{ date, moment, email },
 	    header
 	  )
