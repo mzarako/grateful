@@ -39,6 +39,9 @@ class EnterEmail extends Component {
       return <div><strong>Oops!</strong>{err}</div>
     }
   }
+  componentDidMount() {
+    this.refs.email.getRenderedComponent().focus();
+  }
   render() {
     const { handleSubmit } = this.props;
     return (
@@ -50,7 +53,7 @@ class EnterEmail extends Component {
 
             <div className="field-container">
               <label htmlFor="email">Email:</label>
-              <Field name="email" type="text" component="input" />
+              <Field ref="email" withRef="email" name="email" type="text" component="input" />
             </div>
 
             <button type="submit"><h4>Submit</h4></button>

@@ -16,7 +16,7 @@ class Login extends Component {
     this.renderAuthAlert = this.renderAuthAlert.bind(this);
   }
   handleFormSubmit({ password }) {
-    this.props.login({ email: this.props.email, password });
+    this.props.login({ password });
   }
   renderValidationAlert(state) {
     if (!state.hasPassword) {
@@ -28,6 +28,9 @@ class Login extends Component {
       return <div><strong>Oops!</strong>{err}</div>
     }
   }
+  componentDidMount() {
+    this.refs.password.getRenderedComponent().focus();
+  }
   render() {
     const { handleSubmit } = this.props;
     return (
@@ -38,7 +41,7 @@ class Login extends Component {
 
             <div>
               <label htmlFor="password">password</label>
-              <Field name="password" type="password" component="input" />
+              <Field ref="password" withRef="password" name="password" type="password" component="input" />
             </div>
 
             {this.renderAuthAlert(this.props.errorMessage)}
@@ -54,7 +57,6 @@ class Login extends Component {
 function mapStateToProps(state) {
   return {
     errorMessage: state.auth.error,
-    email: state.user.email
   };
 }
 

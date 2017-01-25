@@ -3,7 +3,6 @@ import { browserHistory } from 'react-router';
 import { SET_EMAIL } from './types';
 const ROOT_URL = 'http://localhost:3090';
 
-
 function searchEmails(email) {
 	return function(dispatch) {
 		axios.post(`${ROOT_URL}/auth`, { email })

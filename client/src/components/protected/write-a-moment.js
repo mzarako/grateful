@@ -28,6 +28,9 @@ class WriteMoment extends Component {
     const dateString = `${getMonthString(date.getMonth())} ${date.getDate()}, ${date.getFullYear()}`;
     this.setState({ date: dateString });
   }
+  componentDidMount() {
+    this.refs.moment.getRenderedComponent().focus();
+  }
   render() {
     const { handleSubmit } = this.props;
     return (
@@ -39,7 +42,7 @@ class WriteMoment extends Component {
             <div className="content">
               <label htmlFor="moment">{this.state.date}</label>
               <span className="fa fa-quote-left"></span>
-              <Field name="moment" component="textarea" />
+               <Field ref="moment" withRef="moment" name="moment" component="textarea" />
               <span className="fa fa-quote-right"></span>
             </div>
             <button type="submit"><h4>Save Moment</h4></button>
