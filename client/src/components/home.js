@@ -22,7 +22,7 @@ export default class Home extends Component {
             </div>
         </div>
         <div className="definition">
-          <h3>mindful moment :</h3>
+          <h3>mindful moment:</h3>
           <h4><span>( noun )</span><br />1.<span className="space"> </span>a moment experienced with full awareness<br />2.<span className="space"> </span>a personal note of gratitude</h4>
         </div>
         <div className="sec-home1">

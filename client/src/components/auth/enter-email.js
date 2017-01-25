@@ -27,10 +27,10 @@ class EnterEmail extends Component {
   renderValidationAlert(state) {
     let showErrors = [];
     if (!state.hasEmail) {
-      showErrors.push(<div><strong>Hey!</strong>Enter an email</div>);
+      showErrors.push(<div key="noEmail" className="error"><p>* Please enter your email *</p></div>);
     }
     if (!state.validEmail && state.hasEmail) {
-      showErrors.push(<div><strong>Hey!</strong>Enter a valid email</div>);
+      showErrors.push(<div key="invalidEmail" className="error"><p>* Please enter a valid email *</p></div>);
     }
     if (showErrors.length > 0) return showErrors;
   }
@@ -42,22 +42,22 @@ class EnterEmail extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <section>
-        <h1>You're two steps away from your collection of moments.</h1>
+      <div className="account sign-in-up">
+        <h3>Hey there!</h3><br /><h2>Enter your email to get started.</h2>
         {this.renderValidationAlert(this.state)}
-        <div>
+        <div className="form-container">
           <form onSubmit={handleSubmit(this.handleFormSubmit)}>
 
-            <div>
-              <label htmlFor="email">email</label>
+            <div className="field-container">
+              <label htmlFor="email">Email:</label>
               <Field name="email" type="text" component="input" />
             </div>
 
-            <button type="submit">Submit</button>
+            <button type="submit"><h4>Submit</h4></button>
           </form>
         </div>
         {this.renderAuthAlert(this.props.errorMessage)}
-      </section>
+      </div>
     )
   }
 }
