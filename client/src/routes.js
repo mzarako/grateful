@@ -6,7 +6,6 @@ import Home from './components/home';
 
 import WriteMoment from './components/protected/write-a-moment';
 import ReadMoment from './components/protected/read-a-moment';
-import Account from './components/protected/account';
 import EnterEmail from './components/auth/enter-email';
 import Login from './components/auth/login';
 import Signup from './components/auth/signup';
@@ -17,7 +16,6 @@ export default (
     <IndexRoute component={Home} />
     <Route path="write-a-moment" component={RequireAuth(WriteMoment)} />
     <Route path="read-a-moment" component={RequireAuth(ReadMoment)} />
-    <Route path="account" component={RequireAuth(Account)} />
     <Route path="enter-email" component={EnterEmail} />
     <Route path="login" component={Login} />
     <Route path="signup" component={Signup} />

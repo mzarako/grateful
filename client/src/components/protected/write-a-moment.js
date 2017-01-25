@@ -20,7 +20,7 @@ class WriteMoment extends Component {
     this.props.createMoment({ moment, date: this.state.date });
   }
   greet(name) {
-    if (name) return <div>Hello {name}!</div>
+    if (name) return <div className="welcome"><h4>Welcome {name}!</h4></div>
   }
   componentWillMount() {
     const date = new Date();
@@ -41,7 +41,9 @@ class WriteMoment extends Component {
           <form onSubmit={handleSubmit(this.handleFormSubmit)}>
             <div className="content">
               <label htmlFor="moment">{this.state.date}</label>
-              <Field ref="moment" withRef="moment" name="moment" component="textarea" />
+              <span className="fa fa-quote-left"></span>
+               <Field ref="moment" withRef="moment" name="moment" component="textarea" />
+              <span className="fa fa-quote-right"></span>
             </div>
             <button type="submit"><h4>Save Moment</h4></button>
           </form>

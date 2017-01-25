@@ -5,7 +5,7 @@ export default class Footer extends Component {
   render() {
     return (
       <footer>
-        <h4>This is the footer</h4>
+        <p>copyright 2017 Mindful Moments</p>
       </footer>
     )
   }

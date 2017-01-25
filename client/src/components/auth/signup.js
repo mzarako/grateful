@@ -34,18 +34,18 @@ class Signup extends Component {
   renderValidationAlert(state) {
     let showErrors = [];
     if (!state.hasName) {
-      showErrors.push(<div key="noName"><strong>Hey!</strong>What is your first name?</div>);
+      showErrors.push(<div className="error" key="noName"><p>* Please enter your name *</p></div>);
     }
     if (!state.hasPassword) {
-      showErrors.push(<div key="noPword"><strong>Hey!</strong>Enter a password</div>);
+      showErrors.push(<div className="error" key="noPword"><p>* Please enter a password *</p></div>);
     }
     else {
       if (!state.passwordLongEnough) {
-        showErrors.push(<div key="pwordTooShort">Password need to be at least 8 characters long.</div>);
+        showErrors.push(<div className="error" key="pwordTooShort"><p>* Passwords must be at least 8 characters long *</p></div>);
       }
       else {
         if (!state.passwordsMatch) {
-          showErrors.push(<div key="noMatch"><strong>Oops!</strong>Passwords dont match</div>);
+          showErrors.push(<div className="error" key="noMatch"><p>* Passwords don't match *</p></div>);
         }
       }
     }
@@ -53,7 +53,7 @@ class Signup extends Component {
   }
   renderAuthAlert(err) {
     if (err) {
-      return <div><strong>Oops!</strong>{err}</div>
+      return <div><p>Oops! {err}</p></div>
     }
   }
   componentDidMount() {
@@ -62,32 +62,32 @@ class Signup extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <section>
-        <h1>You're one step away from your collection of moments.</h1>
+      <div className="account new-user">
+        <h3>Almost there!</h3>
         {this.renderValidationAlert(this.state)}
         <div>
           <form onSubmit={handleSubmit(this.handleFormSubmit)}>
 
-            <div>
-              <label htmlFor="name">first name / nickname</label>
+            <div className="field-container">
+              <label htmlFor="name">First Name:</label>
               <Field ref="name" withRef="name" name="name" type="text" component="input" />
             </div>
 
-            <div>
-              <label htmlFor="password">password</label>
+            <div className="field-container">
+              <label htmlFor="password">Password:</label>
               <Field name="password" type="password" component="input" />
             </div>
 
-            <div>
-              <label htmlFor="passwordConfirm">password confirm</label>
+            <div className="field-container">
+              <label htmlFor="passwordConfirm">Confirm Password:</label>
               <Field name="passwordConfirm" type="password" component="input" />
             </div>
 
-            <button type="submit">Submit</button>
+            <button type="submit"><h4>Submit</h4></button>
           </form>
         </div>
         {this.renderAuthAlert(this.props.errorMessage)}
-      </section>
+      </div>
     )
   }
 }

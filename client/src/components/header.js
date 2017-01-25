@@ -51,7 +51,6 @@ class Header extends Component {
             <ul>
               <Link to="/write-a-moment"><li>Write a Moment</li></Link>
               <Link to="/read-a-moment"><li>Read a Moment</li></Link>
-              <Link to="/account"><li>Account</li></Link>
               <Link to="/"><li onClick={this.onSignoutClicked}>Sign Out</li></Link>
               <div className="button-div">
                 <button type="button" onClick={this.hamburgerClicked}>
