@@ -6,6 +6,7 @@ const SET_EMAIL = 'set_email';
 const SET_NAME = 'set_name';
 const MOMENT_SAVED = 'moment_saved';
 const MOMENTS_FETCHED = 'moments_fetched';
+const CLEAR_SAVED = 'clear_saved';
 
 module.exports = {
   AJAX_TEST,
@@ -15,5 +16,6 @@ module.exports = {
   SET_EMAIL,
   SET_NAME,
   MOMENT_SAVED,
-  MOMENTS_FETCHED
+  MOMENTS_FETCHED,
+  CLEAR_SAVED
 };
