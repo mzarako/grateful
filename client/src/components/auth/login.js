@@ -20,12 +20,12 @@ class Login extends Component {
   }
   renderValidationAlert(state) {
     if (!state.hasPassword) {
-      return <div><strong>Hey!</strong>Enter a password</div>;
+      return <div className="error"><p>* Please enter a password *</p></div>
     }
   }
   renderAuthAlert(err) {
     if (err) {
-      return <div><strong>Oops!</strong>{err}</div>
+      return <div className="error"><p>Oops! {err}</p></div>
     }
   }
   componentDidMount() {
@@ -34,21 +34,22 @@ class Login extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <section>
-        <h1>Login</h1>
+      <div className="account old-user">
+        <h3>Welcome back!</h3>
+        {this.renderValidationAlert(this.state)}
         <div>
           <form onSubmit={handleSubmit(this.handleFormSubmit)}>
 
-            <div>
-              <label htmlFor="password">password</label>
+            <div className="field-container">
+              <label htmlFor="password">Password:</label>
               <Field ref="password" withRef="password" name="password" type="password" component="input" />
             </div>
 
             {this.renderAuthAlert(this.props.errorMessage)}
-            <button type="submit">Submit</button>
+            <button type="submit"><h4>Log In</h4></button>
           </form>
         </div>
-      </section>
+      </div>
     )
   }
 }
