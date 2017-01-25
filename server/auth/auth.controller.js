@@ -36,9 +36,7 @@ methods.signup = function(req, res, next) {
 }
 
 methods.login = function(req, res, next) {
-	res.send({ token: tokenForUser(req.user),
-	 						name: req.user.name
-						});
+	res.send({ token: tokenForUser(req.user), name: req.user.name });
 }
 
 methods.searchEmails = function(req, res, next) {

@@ -14,7 +14,7 @@ export default function createMoment() {
 			dispatch({ type: MOMENTS_FETCHED, payload: moments });
 		})
 		.catch(() => {
-
+			console.log('fetch-moments failed');
 		});
 	}
 }

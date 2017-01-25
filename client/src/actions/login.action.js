@@ -3,9 +3,9 @@ import { browserHistory } from 'react-router';
 import { AUTH_USER, AUTH_ERROR, SET_NAME } from './types';
 const ROOT_URL = 'http://localhost:3090';
 
-
-function login({ email, password }) {
+function login({ password }) {
   	return dispatch => {
+      const email = localStorage.getItem('email');
   		axios.post(`${ROOT_URL}/auth/login`, { email, password })
   			.then(response => {
           dispatch({ type: AUTH_USER });

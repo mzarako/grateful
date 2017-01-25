@@ -56,6 +56,9 @@ class Signup extends Component {
       return <div><strong>Oops!</strong>{err}</div>
     }
   }
+  componentDidMount() {
+    this.refs.name.getRenderedComponent().focus();
+  }
   render() {
     const { handleSubmit } = this.props;
     return (
@@ -67,7 +70,7 @@ class Signup extends Component {
 
             <div>
               <label htmlFor="name">first name / nickname</label>
-              <Field name="name" type="text" component="input" />
+              <Field ref="name" withRef="name" name="name" type="text" component="input" />
             </div>
 
             <div>

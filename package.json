@@ -15,7 +15,8 @@
     "build:js": "webpack",
     "build:html": "rm -f build/index.html && cp client/index.html build/",
     "build:images": "cp -r client/images/* build/",
-    "build": "rm -rf build && mkdir -p build && npm run build:html && npm run build:css && npm run build:images && npm run build:js",
+    "build:fa": "cp -R client/styles/font-awesome build/",
+    "build": "rm -rf build && mkdir -p build && npm run build:html && npm run build:css && npm run build:images && npm run build:fa && npm run build:js",
     "watch": "webpack --watch & npm run watch:css"
   },
   "author": "Monika Zarako-Dobrowner and Jason Dobrowner",
