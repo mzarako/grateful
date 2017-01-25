@@ -1,5 +1,6 @@
 const User = require('../api/user/user.model');
 const jwt = require('jwt-simple');
+const bcrypt = require('bcrypt-nodejs');
 const config = require('../config');
 
 function tokenForUser(user) {
@@ -18,20 +19,30 @@ methods.signup = function(req, res, next) {
 		return res.status(422).send({ error: 'You must provide an email, a password, and a name' });
 	}
 
+	let encryptedPassword;
 	User.findOne({ email: email }, (err, existingUser) => {
 		if (err) { return next(err); }
 		if (existingUser) {
 			return res.status(422).send({ error: 'Email is in use' });
 		}
-		const user = new User({
-			email: email,
-			password: password,
-			name: name
-		});
-		user.save( err => {
-			if (err) { return next(err); }
-			res.json({ token: tokenForUser(user) });
-		});
+
+		// encrypt password here
+		bcrypt.genSalt(10, function(err, salt) {
+	    if (err) { return next(err); }
+	    bcrypt.hash(password, salt, null, function(err, hash) {
+	      if (err) { return next(err); }
+	      encryptedPassword = hash;
+				const user = new User({
+					email: email,
+					password: encryptedPassword,
+					name: name
+				});
+				user.save( err => {
+					if (err) { return next(err); }
+					res.json({ token: tokenForUser(user) });
+				});
+	    });
+	  });
 	});
 }
 

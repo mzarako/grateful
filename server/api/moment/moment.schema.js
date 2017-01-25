@@ -3,8 +3,7 @@ const Schema = mongoose.Schema;
 
 const MomentSchema = new Schema({
   date: String,
-  moment: String,
-  dateID: String
+  moment: String
 });
 
 module.exports = MomentSchema;

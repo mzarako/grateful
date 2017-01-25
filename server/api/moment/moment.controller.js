@@ -10,13 +10,9 @@ methods.createMoment = function(req, res) {
 	User.findOne({ email: email })
 		.then( user => {
 			user.moments.push({ date, moment });
-			return user.save();
-		})
-		.then(() => {
-			user = User.findOne({ email: email });
-			res.status(200).json({
-				posts: user.posts
-			});
+			// this changes the encrypted password... watch out
+			user.save();
+			res.status(200).json({ message: 'Your moment was saved.' });
 		})
 		.catch(() => {
 			res.status(422).json({ error: 'moment failed to be saved' });
@@ -25,20 +21,16 @@ methods.createMoment = function(req, res) {
 
 methods.getMoments = function(req, res) {
 	const email = req.headers.username;
-	console.log(email);
 
 	User.findOne({ email })
 		.then( user => {
-			// const moments = user.moments.map( moment => {
-			// 	return { date: moment.date, text: moment.moment };
-			// })
 			const moments = user.moments
 			res.status(200).json({ moments });
 		})
 		.catch(() => {
 			res.status(422).json({ error: 'moment failed to be saved' });
 		});
-	}
+}
 
 
 let Controller = {
