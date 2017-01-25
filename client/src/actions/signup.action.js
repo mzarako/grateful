@@ -12,7 +12,7 @@ function signup({ password, name }) {
   				dispatch({ type: AUTH_USER });
           dispatch({ type: SET_NAME, payload: name });
   				localStorage.setItem('token', response.data.token);
-  				browserHistory.push('/write-a-moment');
+  				browserHistory.push('/user-home');
   			})
   			.catch(response => {
   				dispatch(authError(response.data.error));

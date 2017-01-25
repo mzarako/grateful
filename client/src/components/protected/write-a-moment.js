@@ -10,7 +10,6 @@ class WriteMoment extends Component {
     this.state = { momentText: '' };
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
-    this.greet = this.greet.bind(this);
   }
   handleTextChange(event) {
     const newText = event.target.value;
@@ -18,9 +17,6 @@ class WriteMoment extends Component {
   }
   handleFormSubmit({ moment }) {
     this.props.createMoment({ moment, date: this.state.date });
-  }
-  greet(name) {
-    if (name) return <div className="welcome"><h4>Welcome {name}!</h4></div>
   }
   componentWillMount() {
     const date = new Date();
@@ -35,7 +31,6 @@ class WriteMoment extends Component {
     const { handleSubmit } = this.props;
     return (
       <div className="write-moment">
-        {this.greet(this.props.name)}
         <h1>Write a Moment</h1>
         <div className="moment-div">
           <form onSubmit={handleSubmit(this.handleFormSubmit)}>
@@ -76,16 +71,10 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(actions, dispatch);
 }
 
-function mapStateToProps(state) {
-  return {
-    name: state.user.name
-  };
-}
-
 const Form = function(form){
   return reduxForm({
             form: 'write a moment',
           })(form);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Form(WriteMoment));
+export default connect(null, mapDispatchToProps)(Form(WriteMoment));

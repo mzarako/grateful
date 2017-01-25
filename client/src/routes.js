@@ -9,6 +9,7 @@ import ReadMoment from './components/protected/read-a-moment';
 import EnterEmail from './components/auth/enter-email';
 import Login from './components/auth/login';
 import Signup from './components/auth/signup';
+import UserHome from './components/protected/user-home';
 import RequireAuth from './components/auth/require-authentication';
 
 export default (
@@ -19,5 +20,6 @@ export default (
     <Route path="enter-email" component={EnterEmail} />
     <Route path="login" component={Login} />
     <Route path="signup" component={Signup} />
+    <Route path="user-home" component={RequireAuth(UserHome)} />
   </Route>
 );
