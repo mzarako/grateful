@@ -45,7 +45,7 @@ export default class Home extends Component {
         </div>
         <div className="sec-home3">
             <div className="home3-text">
-              <h4>Capture the splendor of your life with your personal collection of Mindful Moments.</h4><button><Link to="/login"><h4>Sign Up (free!)</h4></Link></button>
+              <h4>Capture the splendor of your life with your personal collection of Mindful Moments.</h4><button><Link to="/enter-email"><h4>Sign Up (free!)</h4></Link></button>
             </div>
             <div className="home3-img"><img src={sunhead} /></div>
         </div>

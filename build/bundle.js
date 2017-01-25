@@ -40644,7 +40644,7 @@
 	              null,
 	              _react2.default.createElement(
 	                _reactRouter.Link,
-	                { to: '/login' },
+	                { to: '/enter-email' },
 	                _react2.default.createElement(
 	                  'h4',
 	                  null,
@@ -42474,45 +42474,10 @@
 	  function ReadMoment() {
 	    _classCallCheck(this, ReadMoment);
 
-	    // this.showMoments = this.showMoments.bind(this);
-	    var _this = _possibleConstructorReturn(this, (ReadMoment.__proto__ || Object.getPrototypeOf(ReadMoment)).call(this));
-
-	    _this.fetchAllMoments = _this.fetchAllMoments.bind(_this);
-	    _this.showAllMomentTitles = _this.showAllMomentTitles.bind(_this);
-	    return _this;
+	    return _possibleConstructorReturn(this, (ReadMoment.__proto__ || Object.getPrototypeOf(ReadMoment)).call(this));
 	  }
 
 	  _createClass(ReadMoment, [{
-	    key: 'fetchAllMoments',
-	    value: function fetchAllMoments() {
-	      // this.props.fetchMoments();
-	    }
-	  }, {
-	    key: 'showAllMomentTitles',
-	    value: function showAllMomentTitles(moments) {
-	      console.log('in showAllMomentTitles', moments);
-	      var momentTitles = void 0;
-	      if (moments.length > 0) {
-	        momentTitles = moments.map(function (moment) {
-	          return _react2.default.createElement(
-	            'div',
-	            { key: moment._id },
-	            _react2.default.createElement(
-	              'h4',
-	              null,
-	              moment.date
-	            )
-	          );
-	        });
-
-	        return _react2.default.createElement(
-	          'div',
-	          { className: 'moment-titles' },
-	          momentTitles
-	        );
-	      }
-	    }
-	  }, {
 	    key: 'componentWillMount',
 	    value: function componentWillMount() {
 	      this.props.fetchMoments();
@@ -42533,21 +42498,6 @@
 	          'div',
 	          { className: 'nuka' },
 	          _react2.default.createElement(_carousel2.default, { moments: this.props.moments })
-	        ),
-	        _react2.default.createElement(
-	          'button',
-	          { type: 'button' },
-	          'Save changes'
-	        ),
-	        _react2.default.createElement(
-	          'button',
-	          { type: 'button' },
-	          'Delete'
-	        ),
-	        _react2.default.createElement(
-	          'button',
-	          { type: 'button', onClick: this.fetchAllMoments },
-	          'Display all'
 	        )
 	      );
 	    }
@@ -42625,7 +42575,7 @@
 	          momentsArray.push(moment);
 	        }
 	      } else {
-	        var welcome = _react2.default.createElement(_moment2.default, { date: 'You have no moments yet.', text: 'Go to \'Write a Moment\' to write your first moment', key: 'noMoment' });
+	        var welcome = _react2.default.createElement(_moment2.default, { date: 'Your collection is empty.', text: '', key: 'noMoment' });
 	        momentsArray.push(welcome);
 	      }
 	      console.log(momentsArray);
@@ -44596,12 +44546,9 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function Moment(props) {
-	  var style = {
-	    height: "600px"
-	  };
 	  return _react2.default.createElement(
 	    "div",
-	    { className: "moment", style: style },
+	    { className: "moment" },
 	    _react2.default.createElement(
 	      "div",
 	      null,
@@ -44613,13 +44560,15 @@
 	    ),
 	    _react2.default.createElement(
 	      "div",
-	      null,
+	      { className: "read-moment-text" },
+	      _react2.default.createElement("span", { className: "fa fa-quote-left" }),
 	      _react2.default.createElement(
 	        "p",
 	        null,
 	        props.text
 	      )
-	    )
+	    ),
+	    _react2.default.createElement("span", { className: "fa fa-quote-right" })
 	  );
 	}
 
@@ -45422,7 +45371,7 @@
 	        _react2.default.createElement(
 	          'p',
 	          null,
-	          'A moment was just added to your collection.'
+	          '* A moment was just added to your collection. *'
 	        )
 	      );
 	    }
@@ -45436,12 +45385,12 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'user-home' },
+	        { className: 'account user-home' },
 	        this.greet(this.props.name),
 	        this.momentSaved(this.props.saved),
 	        _react2.default.createElement(
 	          'button',
-	          { onClick: this.props.clearSaved },
+	          { className: 'write', onClick: this.props.clearSaved },
 	          _react2.default.createElement(
 	            _reactRouter.Link,
 	            { to: '/write-a-moment' },
@@ -45454,7 +45403,7 @@
 	        ),
 	        _react2.default.createElement(
 	          'button',
-	          { onClick: this.props.clearSaved },
+	          { className: 'read', onClick: this.props.clearSaved },
 	          _react2.default.createElement(
 	            _reactRouter.Link,
 	            { to: '/read-a-moment' },
