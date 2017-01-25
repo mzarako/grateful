@@ -41,12 +41,13 @@ body {
     font-weight: 400;
     line-height: 2;
     padding: 15px;
-    font-size: 22px;
+    font-size: 20px;
     text-align: center;
   }
   ul, p {
     font-weight: 300;
     line-height: 1.5;
+    font-size: 14px;
   }
 }
 
@@ -78,7 +79,8 @@ button:hover {background-color: @darker-yellowish;}
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: stretch;
+  align-items: center;
+  .home-content {max-width: 1016px;}
 }
 
 button {
@@ -96,6 +98,7 @@ button {
     color: @galaxy;
     font-size: 18px!important;
     font-weight: bold;
+    line-height: 1.5;
   }
 }
 
@@ -147,6 +150,7 @@ header {
     justify-content: center;
     width: 70px;
     height: 65px;
+    border-bottom-left-radius: 10px;
   }
   button {
     border: none;
@@ -189,7 +193,7 @@ header {
   .flex;
   flex-direction: row;
   color: @white;
-  height: 450px;
+  height: 400px;
   .hero-img {
     align-self: flex-end;
     width: 100%;
@@ -216,7 +220,7 @@ header {
   h3 {
     font-weight: 300;
     font-size: 1.5em;
-    padding: 50px 15px;
+    padding: 40px 15px;
   }
   span {
     font-style: italic;
@@ -229,6 +233,7 @@ header {
     text-align: left;
     font-weight: 300;
     font-size: 18px;
+    line-height: 1.5;
   }
 }
 
@@ -243,6 +248,10 @@ header {
     .flex;
     flex-direction: column;
     text-align: center;
+  }
+  .read-write {
+    font-size: 26px;
+    font-weight: 500;
   }
 }
 
@@ -266,7 +275,12 @@ header {
   }
   .sample-moment {
     font-family: 'Roboto Slab', serif;
-    span {text-align: left;}
+    span {
+      text-align: left;
+      display: block;
+      padding-left: 20px;
+      font-style: normal;
+    }
     width: 80%;
     margin-bottom: 80px;
     max-width: 380px;
@@ -320,7 +334,7 @@ header {
 .write-moment {
   .flex;
   width: 100%;
-  height: 600px;
+  height: 650px;
   background-color: @galaxy;
   flex-direction: column;
   .welcome {
@@ -332,10 +346,9 @@ header {
     font-weight: 400;
   }
   .moment-div {
-    width: 90%;
-    max-width: 800px;
+    width: 80%;
+    max-width: 700px;
     background-color: @muted-orange;
-    border-radius: 10px;
     color: @white;
     .content {
       background-color: @yellowish;
@@ -344,7 +357,15 @@ header {
       padding: 15px;
       font-family: @roboto;
       color: @galaxy;
+      margin: 10px;
       label {font-size: 18px;}
+      .fa {
+        color: @muted-orange;
+        display: block;
+        font-size: 1.7em;
+      }
+      .fa-quote-left {padding-top: 10px;}
+      .fa-quote-right {text-align: right;}
       textarea {
         background-color: @yellowish;
         border: none;
@@ -366,11 +387,12 @@ header {
 
 .account {
   .flex;
-  width: 100%;
+  width: 400px;
   height: 400px;
   flex-direction: column;
   color: @white;
   padding: 20px;
+  margin: 20px;
   .field-container {margin-bottom: 20px;}
   h3 {
     line-height: 2;
@@ -406,18 +428,28 @@ header {
 }
 
 .sign-in-up {
-  background-color: @muted-orange;
+  background-color: @muted-papaya;
 }
 
 .new-user {
   height: 500px;
-  background-color: @muted-papaya;
+  width: 320px;
+  background-color: @muted-orange;
   justify-content: flex-end;
   h3 {padding-bottom: 20px;}
   .field-container {
     display: flex;
     align-items: center;
   }
+  input {
+    width: 200px;
+    margin: 10px 0;
+  }
+}
+
+.old-user {
+  background-color: @muted-orange;
+  h3 {padding-bottom: 20px;}
   input {
     width: 200px;
     margin: 10px 0;
@@ -475,6 +507,10 @@ footer {
   .sec-home1 {
     height: 600px;
     flex-direction: row;
+    .home1-text-2 {
+      padding: 40px 0;
+      h4 {padding-top: 30px;}
+    }
   }
   .home1-text-1, .home1-text-2 {height: 600px;}
   .sec-home2 {
@@ -545,4 +581,16 @@ footer {
     }
   }
   .sec-home3 .home3-img img {height: 100%;}
+}
+
+@media screen and (min-height: 1100px) {
+  .account {
+    margin-bottom: 100px;
+  }
+}
+
+@media screen and (min-height: 1200px) {
+  .account {
+    margin-bottom: 200px;
+  }
 }

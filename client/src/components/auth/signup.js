@@ -53,7 +53,7 @@ class Signup extends Component {
   }
   renderAuthAlert(err) {
     if (err) {
-      return <div><p>Oops! {err}</p></div>
+      return <div className="error"><p>Oops! {err}</p></div>
     }
   }
   componentDidMount() {
@@ -83,7 +83,7 @@ class Signup extends Component {
               <Field name="passwordConfirm" type="password" component="input" />
             </div>
 
-            <button type="submit"><h4>Submit</h4></button>
+            <button type="submit"><h4>Sign Up</h4></button>
           </form>
         </div>
         {this.renderAuthAlert(this.props.errorMessage)}

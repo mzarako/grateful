@@ -11,6 +11,7 @@ class Header extends Component {
     super();
     this.state = { hamburgerOpen: false };
     this.onSignoutClicked = this.onSignoutClicked.bind(this);
+    this.onLinkClicked = this.onLinkClicked.bind(this);
     this.navBar = this.navBar.bind(this);
     this.hamburgerClicked = this.hamburgerClicked.bind(this);
     this.toggleHamburgerNav = this.toggleHamburgerNav.bind(this);
@@ -18,6 +19,9 @@ class Header extends Component {
   onSignoutClicked() {
     this.props.signout();
     this.hamburgerClicked();
+  }
+  onLinkClicked() {
+    this.setState({hamburgerOpen: false});
   }
   hamburgerClicked() {
     this.setState({hamburgerOpen: !this.state.hamburgerOpen});
@@ -49,8 +53,8 @@ class Header extends Component {
       return (
        <nav className={this.toggleHamburgerNav()}>
             <ul>
-              <Link to="/write-a-moment"><li>Write a Moment</li></Link>
-              <Link to="/read-a-moment"><li>Read a Moment</li></Link>
+              <Link to="/write-a-moment"><li onClick={this.onLinkClicked}>Write a Moment</li></Link>
+              <Link to="/read-a-moment"><li onClick={this.onLinkClicked}>Read a Moment</li></Link>
               <Link to="/"><li onClick={this.onSignoutClicked}>Sign Out</li></Link>
               <div className="button-div">
                 <button type="button" onClick={this.hamburgerClicked}>

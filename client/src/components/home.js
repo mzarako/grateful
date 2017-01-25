@@ -14,7 +14,7 @@ import connection from '../../images/connection.svg';
 export default class Home extends Component {
   render() {
     return (
-      <div>
+      <div className="home-content">
         <div className="hero">
           <div className="hero-img"></div>
             <div className="hero-text">
@@ -23,17 +23,17 @@ export default class Home extends Component {
         </div>
         <div className="definition">
           <h3>mindful moment:</h3>
-          <h4><span>( noun )</span><br />1.<span className="space"> </span>a moment experienced with full awareness<br />2.<span className="space"> </span>a personal note of gratitude</h4>
+          <h4>( <span>noun</span> )<br /><br />1.<span className="space"> </span>a moment experienced with full awareness<br /><br />2.<span className="space"> </span>a personal note of gratitude</h4>
         </div>
         <div className="sec-home1">
             <div className="home1-text-1">
-              <h4>Write a Moment daily or weekly about anything you're grateful for.</h4>
+              <h4><span className="read-write">Write a Moment</span> daily or weekly about anything you're grateful for.</h4>
               <div>
                 <img src={fullJar} />
               </div>
             </div>
             <div className="home1-text-2">
-                <h4>Read your Moments at the year's end or whenever you need a reminder to smile.</h4>
+                <h4><span className="read-write">Read your Moments</span> at the year's end or whenever you need a reminder to smile.</h4>
                <div className="sample-moment"><p><span>June 12, 2016</span><br />"My sister is amazing. Today she told me exactly what I needed to hear- You have to feel fear to be brave!"</p></div>
             </div>
         </div>
