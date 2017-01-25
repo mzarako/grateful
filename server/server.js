@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const config = require('./config');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.mogodb.url);
+mongoose.connect(process.env.MONGODB_URI || config.mogodb.url);
 const middleware_configuration = require('./config/middleware.express.js');
 
 const mainRouter = require('./api/main/main.router');
