@@ -190,12 +190,12 @@ header {
 
 .hero {
   background-color: @galaxy;
-  .flex;
-  flex-direction: row;
   color: @white;
   height: 400px;
+  position: relative;
   .hero-img {
-    align-self: flex-end;
+    position: relative;
+    top: 150px;
     width: 100%;
     height: 250px;
     background-repeat: repeat-x;
@@ -203,10 +203,10 @@ header {
   }
   .hero-text {
     position: absolute;
-    margin-top: 30px;
-    text-align: center;
-    align-self: flex-start;
+    bottom: 250px;
+    width: 100px;
     line-height: 2;
+    margin: 0 auto;
   }
 }
 
