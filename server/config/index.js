@@ -1,4 +1,4 @@
-import secrect from './secret';
+var secret = require('./secret');
 
 var configuration = {
 	express_port: 3090,
