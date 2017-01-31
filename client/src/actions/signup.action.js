@@ -2,12 +2,12 @@ import axios from 'axios';
 import { browserHistory } from 'react-router';
 import { AUTH_USER, AUTH_ERROR, SET_NAME } from './types';
 const ROOT_URL = 'http://localhost:3090';
-
+// const ROOT_URL = '';
 
 function signup({ password, name }) {
     const email = localStorage.getItem('email');
   	return function(dispatch) {
-  		axios.post(`/auth/signup`, { email, password, name })
+  		axios.post(`${ROOT_URL}/auth/signup`, { email, password, name })
   			.then(response => {
   				dispatch({ type: AUTH_USER });
           dispatch({ type: SET_NAME, payload: name });
