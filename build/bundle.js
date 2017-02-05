@@ -40929,6 +40929,8 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var ROOT_URL = 'http://localhost:3090';
+	// const ROOT_URL = '';
+
 	function createMoment(_ref) {
 		var date = _ref.date,
 		    moment = _ref.moment;
@@ -40936,7 +40938,7 @@
 		return function (dispatch) {
 			var header = { headers: { authorization: localStorage.getItem('token') } };
 			var email = localStorage.getItem('email');
-			var request = _axios2.default.post('/moment', { date: date, moment: moment, email: email }, header).then(function () {
+			var request = _axios2.default.post(ROOT_URL + '/moment', { date: date, moment: moment, email: email }, header).then(function () {
 				_reactRouter.browserHistory.push('/user-home');
 				dispatch({ type: _types.MOMENT_SAVED });
 			});
@@ -44592,12 +44594,14 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var ROOT_URL = 'http://localhost:3090';
+	// const ROOT_URL = '';
+
 	function createMoment() {
 		return function (dispatch) {
 			var token = localStorage.getItem('token');
 			var email = localStorage.getItem('email');
 			var header = { headers: { authorization: token, username: email } };
-			_axios2.default.get('/moment', header).then(function (response) {
+			_axios2.default.get(ROOT_URL + '/moment', header).then(function (response) {
 				var moments = response.data.moments;
 				dispatch({ type: _types.MOMENTS_FETCHED, payload: moments });
 			}).catch(function () {
@@ -44802,10 +44806,11 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var ROOT_URL = 'http://localhost:3090';
+	// const ROOT_URL = '';
 
 	function searchEmails(email) {
 		return function (dispatch) {
-			_axios2.default.post('/auth', { email: email }).then(function (response) {
+			_axios2.default.post(ROOT_URL + '/auth', { email: email }).then(function (response) {
 				dispatch({ type: _types.SET_EMAIL, payload: email });
 				if (response.data.emailFound === 'yes') {
 					_reactRouter.browserHistory.push('/login');
@@ -44995,13 +45000,14 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var ROOT_URL = 'http://localhost:3090';
+	// const ROOT_URL = '';
 
 	function login(_ref) {
 	  var password = _ref.password;
 
 	  return function (dispatch) {
 	    var email = localStorage.getItem('email');
-	    _axios2.default.post('/auth/login', { email: email, password: password }).then(function (response) {
+	    _axios2.default.post(ROOT_URL + '/auth/login', { email: email, password: password }).then(function (response) {
 	      dispatch({ type: _types.AUTH_USER });
 	      dispatch({ type: _types.SET_NAME, payload: response.data.name });
 	      localStorage.setItem('token', response.data.token);
@@ -45269,6 +45275,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var ROOT_URL = 'http://localhost:3090';
+	// const ROOT_URL = '';
 
 	function signup(_ref) {
 	  var password = _ref.password,
@@ -45276,7 +45283,7 @@
 
 	  var email = localStorage.getItem('email');
 	  return function (dispatch) {
-	    _axios2.default.post('/auth/signup', { email: email, password: password, name: name }).then(function (response) {
+	    _axios2.default.post(ROOT_URL + '/auth/signup', { email: email, password: password, name: name }).then(function (response) {
 	      dispatch({ type: _types.AUTH_USER });
 	      dispatch({ type: _types.SET_NAME, payload: name });
 	      localStorage.setItem('token', response.data.token);
