@@ -58,7 +58,7 @@ export default class Nuka extends Component {
       }
     ];
     return (
-      <Carousel decorators={Decorators} wrapAround={true}>
+      <Carousel decorators={Decorators} wrapAround={this.props.moments.length > 1 ? true : false}>
         {this.fillMoments()}
       </Carousel>
     )

@@ -56,10 +56,8 @@ class Header extends Component {
               <Link to="/write-a-moment"><li onClick={this.onLinkClicked}>Write a Moment</li></Link>
               <Link to="/read-a-moment"><li onClick={this.onLinkClicked}>Read a Moment</li></Link>
               <Link to="/"><li onClick={this.onSignoutClicked}>Sign Out</li></Link>
-              <div className="button-div">
-                <button type="button" onClick={this.hamburgerClicked}>
+              <div className="button-div" onClick={this.hamburgerClicked}>
                   {this.returnHamburger()}
-                </button>
               </div>
             </ul>
       </nav>
@@ -78,8 +76,10 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <Link className="a-logo" to="/"><img src={logo} /></Link>
-        {this.navBar(this.props.authenticated)}
+        <div className="header-container">
+          <Link className="a-logo" to="/"><img src={logo} /></Link>
+          {this.navBar(this.props.authenticated)}
+        </div>
       </header>
     )
   }

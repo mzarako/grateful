@@ -8,9 +8,8 @@ export default function Moment(props) {
       </div>
       <div className="read-moment-text">
         <span className="fa fa-quote-left"></span>
-        <p>{props.text}</p>
+        <p>{props.text}<br/></p>
       </div>
-      <span className="fa fa-quote-right"></span>
     </div>
   )
 }

@@ -46,7 +46,7 @@ class Login extends Component {
             </div>
 
             {this.renderAuthAlert(this.props.errorMessage)}
-            <button type="submit"><h4>Log In</h4></button>
+            <button className="button" type="submit">Log In</button>
           </form>
         </div>
       </div>

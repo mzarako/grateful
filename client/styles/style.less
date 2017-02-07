@@ -19,13 +19,13 @@
 @light-green: #d0e3cc;
 @green: #a9bea7;
 @muted-papaya: #e18c70;
+@darker-papaya: #e98867;
 @muted-orange: #e7a074;
+@darker-orange: #ef9e6c;
 @text: #464a53;
 @white: #fafafa;
 
 @roboto: 'Roboto Slab', serif;
-
-// current scheme: @galaxy, @yellowish, @muted-papaya, @muted-orange, @dark-blue
 
 html {
   box-sizing: border-box;
@@ -37,6 +37,7 @@ html {
 body {
   background-color: @galaxy;
   font-family: 'Rubik', sans-serif;
+  width: 100%;
   h4 {
     font-weight: 400;
     line-height: 2;
@@ -68,8 +69,6 @@ a {
   cursor: pointer;
 }
 
-button:hover {background-color: @darker-yellowish;}
-
 .inline {
   display: inline-block;
 }
@@ -83,34 +82,34 @@ button:hover {background-color: @darker-yellowish;}
   .home-content {max-width: 1016px;}
 }
 
-button {
-  cursor: pointer;
-  border-style: none;
-  border-image: none;
-  -webkit-appearance: none;
-  outline: none;
-  display: block;
-  margin: 15px auto;
+.button {
   border: 1px solid @yellowish;
   border-radius: 10px;
   background-color: @yellowish;
-  a, h4 {
-    color: @galaxy;
-    font-size: 18px!important;
-    font-weight: bold;
-    line-height: 1.5;
-  }
+  color: @galaxy;
+  font-size: 18px!important;
+  font-weight: bold;
+  line-height: 1.5;
+  padding: 20px;
+  margin: 10px auto;
 }
+
+.button:hover {background-color: @darker-yellowish;}
 
 header {
   color: @galaxy;
   background-color: @white;
   width: 100%;
+  .header-container {
+    max-width: 1016px;
+    margin: 0 auto;
+  }
+  .a-logo {cursor: default;}
   img {
-    width: 80%;
+    height: 100px;
     display: block;
-    margin: 30px;
-    margin-top: 50px;
+    margin: 20px auto;
+    cursor: pointer;
   }
   .login {
     a {
@@ -119,8 +118,8 @@ header {
     }
     h4 {
       padding-top: 0;
-      padding-bottom: 30px;
-      line-height: 1;
+      padding-bottom: 10px;
+      line-height: 1.5;
     }
   }
   h4 {
@@ -135,7 +134,7 @@ header {
     a:hover {text-decoration: underline;}
     li {
       text-align: center;
-      margin: 20px;
+      margin: 21px;
       list-style: none;
       font-weight: 400;
     }
@@ -146,31 +145,29 @@ header {
     right: 0;
     background-color: @dark-blue;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 70px;
-    height: 65px;
+    width: 60px;
+    height: 56px;
     border-bottom-left-radius: 10px;
-  }
-  button {
-    border: none;
-    background-color: transparent;
+    cursor: pointer;
     .hamburger1, .hamburger2, .hamburger3 {
       width: 40px;
-      height: 2px;
       background-color: @white;
-      margin: 10px 0;
+      border: 2px solid @white;
+      border-radius: 10px;
+      margin: 5px 0;
       transition: 0.4s;
       display: block;
     }
   }
-  button:hover {background-color: @dark-blue;}
   .button-div:hover {background-color: @dark-blue;}
 }
 
 .animate-hamburger1 {
   -webkit-transform: rotate(-45deg) translate(-10px, 10px) ;
-    transform: rotate(-45deg) translate(-8px, 10px) ;
+    transform: rotate(-45deg) translate(-10px, 9px) ;
 }
 
 .animate-hamburger2 {
@@ -179,7 +176,7 @@ header {
 
 .animate-hamburger3 {
     -webkit-transform: rotate(45deg) translate(-10px, -10px) ;
-    transform: rotate(45deg) translate(-5px, -10px) ;
+    transform: rotate(45deg) translate(-10px, -10px) ;
 }
 
 .nav-hidden {
@@ -239,7 +236,7 @@ header {
 
 .sec-home1 {
   .flex;
-  height: 1000px;
+  height: 900px;
   flex-direction: column;
   .home1-text-1, .home1-text-2 {
     width: 100%;
@@ -257,7 +254,7 @@ header {
 
 .home1-text-1 {
   background-color: @muted-orange;
-  height: 500px;
+  height: 450px;
   padding: 40px 0;
   h4 {height: 50%;}
   div {height: 50%;}
@@ -266,12 +263,12 @@ header {
 
 .home1-text-2 {
   background-color: @muted-papaya;
-  height: 500px;
+  height: 450px;
   display: flex;
   flex-direction: column;
   h4 {
-    height: 60%;
-    padding-top: 80px;
+    height: 50%;
+    padding-top: 30px;
   }
   .sample-moment {
     font-family: 'Roboto Slab', serif;
@@ -308,7 +305,7 @@ header {
   .home2-img {
     .flex;
     height: 180px;
-    img {height: 130px;}
+    img {height: 150px;}
   }
   .home2-text {
     width: 100%;
@@ -326,9 +323,22 @@ header {
   width: 100%;
   height: 500px;
   h4 {font-size: 20px;}
-  .home3-img {height: 120px;}
+  .home3-img {
+    height: 120px;
+    margin-bottom: 20px;
+  }
   img {height: 100%;}
-  .home3-text {padding-top: 50px;}
+  .home3-text {
+    padding-top: 50px;
+    text-align: center;
+  }
+}
+
+.sec-home2, .sec-home3 {
+  h4 {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
 }
 
 .write-moment {
@@ -350,6 +360,7 @@ header {
     max-width: 700px;
     background-color: @dark-blue;
     color: @white;
+    form {text-align: center;}
     .content {
       background-color: @yellowish;
       border: 2px solid @yellowish;
@@ -358,6 +369,7 @@ header {
       font-family: @roboto;
       color: @galaxy;
       margin: 10px;
+      text-align: left;
       label {font-size: 18px;}
       textarea {
         background-color: @yellowish;
@@ -394,6 +406,7 @@ header {
   color: @white;
   padding: 20px;
   margin: 20px;
+  text-align: center;
   .field-container {margin-bottom: 20px;}
   h3 {
     line-height: 2;
@@ -464,9 +477,17 @@ header {
     background-color: @muted-orange;
     border-color: @muted-orange;
   }
+  .write:hover {
+    background-color: @darker-orange;
+    border-color: @darker-orange;
+  }
   .read {
     background-color: @muted-papaya;
     border-color: @muted-papaya;
+  }
+  .read:hover {
+    background-color: @darker-papaya;
+    border-color: @darker-papaya;
   }
 }
 
@@ -501,7 +522,7 @@ header {
     padding: 15px;
     border-radius: 10px;
     background-color: @yellowish;
-    overflow: scroll;
+    overflow-y: auto;
     p {
       font-family: @roboto;
       text-align: center;
@@ -513,6 +534,14 @@ header {
     }
     .read-moment-text {
       p {height: 275px;}
+      p::after {
+        font-family: "FontAwesome";
+        content: '\f10e';
+        font-size: 1.5em;
+        text-align: right;
+        padding-left: 510px;
+        color: @dark-blue;
+      }
       .fa-quote-left {padding-top: 5px;}
     }
   }
@@ -538,10 +567,6 @@ footer {
 }
 
 @media screen and (min-width: 450px) {
-  header img {
-    max-height: 150px;
-    margin-top: 20px;
-  }
   .write-moment .moment-div .content {margin: 30px;}
   .read-moment .nuka {
     .moment {width: 85%;}
@@ -549,30 +574,67 @@ footer {
     .slider-decorator-0 {left: 20px!important;}
     .slider-decorator-1 {right: 21px!important;}
   }
+  .sec-home1 {
+    height: 800px;
+    .home1-text-1, .home1-text-2 {
+      height: 400px;
+      h4 {max-width: 600px;}
+    }
+  }
 }
 
 @media screen and (min-width: 650px) {
   body h4 {padding: 30px;}
+  .sec-home2 h4, .sec-home3 h4 {
+    font-size: 22px;
+  }
+}
+
+@media screen and (min-width: 690px) {
+  header nav {
+    transition: none;
+  }
+}
+
+@media screen and (min-width: 700px) {
   header {
-    .a-logo, .login {
-      .inline;
-      width: 50%;
-      h4 {padding-bottom: 10px;}
+    .header-container {height: 140px;}
+    margin-bottom: 0;
+    .a-logo {
+      width: 40%;
+      display: inline-block;
     }
-    .login {vertical-align: text-bottom;}
-    h4 {
-      margin: 0 30px 30px 0;
-      text-align: right;
-      line-height: 1;
-      padding: 15px;
+    img {margin-left: 30px;}
+    nav {background-color: transparent;}
+    .button-div {display: none;}
+    ul {text-align: right;}
+    .nav-hidden, .nav-visible {
+      transition: none;
+      padding: 0;
+      width: 60%;
+      height: auto;
+      display: inline-block;
+      overflow-y: hidden;
     }
-    img {
-      height: 150px;
-      width: 472px;
+    .login {
+      width: 60%;
+      vertical-align: bottom;
+      padding: 0 10px 21px 10px;
+      display: inline-block;
+      h4 {
+        text-align: right;
+        padding: 0;
+      }
+    }
+    nav a {
+      display: inline-block;
+      color: @galaxy;
+    }
+    nav a:hover {
+      color: @text;
+      text-decoration: none;
     }
   }
-  button h4 {padding: 15px;}
-  .sec-home2 h4, .sec-home3 h4 {font-size: 22px;}
 }
 
 @media screen and (min-width: 900px) {
@@ -582,16 +644,16 @@ footer {
     h3 {padding-right: 50px;}
   }
   .sec-home1 {
-    height: 600px;
+    height: 450px;
     flex-direction: row;
     .home1-text-2 {
-      padding: 40px 0;
-      h4 {padding-top: 30px;}
+      padding-top: 50px;
     }
+    .home1-text-1, .home1-text-2 {height: 450px;}
   }
-  .home1-text-1, .home1-text-2 {height: 600px;}
   .sec-home2 {
     flex-direction: row;
+    height: 400px;
     .home2-img {
       width: 30%;
       height: 100%;
@@ -609,13 +671,13 @@ footer {
   .sec-home3 {
     flex-direction: row-reverse;
     justify-content: center;
+    height: 400px;
     .home3-text {
       width: 60%;
       padding: 0;
     }
     .home3-img {
       width: 30%;
-      height: 140px;
       img {
         height: 80%;
         display: block;
@@ -623,42 +685,11 @@ footer {
       }
     }
   }
-}
-
-@media screen and (min-width: 990px) {
-  header nav {
-    transition: none;
-  }
+  .sec-home2 h4, .sec-home3 h4 {margin-bottom: 20px;}
 }
 
 @media screen and (min-width: 1000px) {
-  header {
-    margin-bottom: 0;
-    .a-logo {width: 40%;}
-    img {margin-left: 0;}
-    nav {background-color: transparent;}
-    .button-div {display: none;}
-    ul {text-align: right;}
-    .nav-hidden, .nav-visible {
-      transition: none;
-      padding: 0 0 15px 0;
-      width: 60%;
-      height: auto;
-      display: inline-block;
-      overflow-y: hidden;
-    }
-    .login {width: 60%;}
-    nav a {
-      display: inline-block;
-      color: @galaxy;
-    }
-    nav a:hover {
-      color: @text;
-      text-decoration: none;
-    }
-  }
   .sec-home3 .home3-img img {height: 100%;}
-  .read-moment {margin-bottom: 100px;}
 }
 
 @media screen and (min-height: 1100px) {

@@ -40,7 +40,7 @@ class WriteMoment extends Component {
                <Field ref="moment" withRef="moment" name="moment" component="textarea" />
               <span className="fa fa-quote-right"></span>
             </div>
-            <button type="submit"><h4>Save Moment</h4></button>
+            <button className="button" type="submit">Save Moment</button>
           </form>
         </div>
       </div>

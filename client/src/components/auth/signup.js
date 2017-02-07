@@ -83,7 +83,7 @@ class Signup extends Component {
               <Field name="passwordConfirm" type="password" component="input" />
             </div>
 
-            <button type="submit"><h4>Sign Up</h4></button>
+            <button className="button" type="submit">Sign Up</button>
           </form>
         </div>
         {this.renderAuthAlert(this.props.errorMessage)}

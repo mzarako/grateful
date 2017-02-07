@@ -56,7 +56,7 @@ class EnterEmail extends Component {
               <Field ref="email" withRef="email" name="email" type="text" component="input" />
             </div>
 
-            <button type="submit"><h4>Submit</h4></button>
+            <button className="button" type="submit">Submit</button>
           </form>
         </div>
         {this.renderAuthAlert(this.props.errorMessage)}

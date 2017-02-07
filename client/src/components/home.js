@@ -40,12 +40,12 @@ export default class Home extends Component {
         <div className="sec-home2">
             <div className="home2-img"><img src={lightbulb} /></div>
             <div className="home2-text">
-                <h4>The science on gratitude is bubbling with exciting findings– people who take time to feel grateful are happier, healthier, and more positive.</h4><button><a href="http://www.health.harvard.edu/newsletter_article/in-praise-of-gratitude" target="_blank"><h4>Learn More</h4></a></button>
+                <h4>The science on gratitude is bubbling with exciting findings– people who take time to feel grateful are happier, healthier, and more positive.</h4><a className="button" href="http://www.health.harvard.edu/newsletter_article/in-praise-of-gratitude" target="_blank">Learn More</a>
             </div>
         </div>
         <div className="sec-home3">
             <div className="home3-text">
-              <h4>Capture the splendor of your life with your personal collection of Mindful Moments.</h4><button><Link to="/enter-email"><h4>Sign Up (free!)</h4></Link></button>
+              <h4>Capture the splendor of your life with your personal collection of Mindful Moments.</h4><Link className="button" to="/enter-email">Sign Up (free!)</Link>
             </div>
             <div className="home3-img"><img src={sunhead} /></div>
         </div>

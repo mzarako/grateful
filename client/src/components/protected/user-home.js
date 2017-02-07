@@ -25,8 +25,8 @@ class UserHome extends Component {
       <div className="account user-home">
         {this.greet(this.props.name)}
         {this.momentSaved(this.props.saved)}
-        <button className="write" onClick={this.props.clearSaved}><Link to="/write-a-moment"><h4>Write a Moment</h4></Link></button>
-        <button className="read" onClick={this.props.clearSaved}><Link to="/read-a-moment"><h4>Read a Moment</h4></Link></button>
+        <Link className="button write" onClick={this.props.clearSaved} to="/write-a-moment">Write a Moment</Link>
+        <Link className="button read" onClick={this.props.clearSaved} to="/read-a-moment">Read a Moment</Link>
       </div>
   )}
 }
