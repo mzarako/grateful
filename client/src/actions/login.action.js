@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
 import { AUTH_USER, AUTH_ERROR, SET_NAME } from './types';
-const ROOT_URL = 'http://localhost:3090';
-// const ROOT_URL = '';
+// const ROOT_URL = 'http://localhost:3090';
+const ROOT_URL = '';
 
 function login({ password }) {
   	return dispatch => {

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { MOMENTS_FETCHED } from './types'
-const ROOT_URL = 'http://localhost:3090';
-// const ROOT_URL = '';
+// const ROOT_URL = 'http://localhost:3090';
+const ROOT_URL = '';
 
 export default function createMoment() {
 	return dispatch => {

@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
 import { SET_EMAIL } from './types';
-const ROOT_URL = 'http://localhost:3090';
-// const ROOT_URL = '';
+// const ROOT_URL = 'http://localhost:3090';
+const ROOT_URL = '';
 
 function searchEmails(email) {
 	return function(dispatch) {

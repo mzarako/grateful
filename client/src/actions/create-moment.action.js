@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
 import { MOMENT_SAVED } from './types'
-const ROOT_URL = 'http://localhost:3090';
-// const ROOT_URL = '';
+// const ROOT_URL = 'http://localhost:3090';
+const ROOT_URL = '';
 
 export default function createMoment({ date, moment }) {
 	return dispatch => {
