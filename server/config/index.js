@@ -5,7 +5,7 @@ var configuration = {
 	mogodb: {
 		url: 'mongodb://localhost:mindful-moments/devData'
 	},
-	secret: process.env.SECRET_API_KEY || secret
+	secret: process.env.SECRET_API_KEY
 }
 
 module.exports = configuration;
